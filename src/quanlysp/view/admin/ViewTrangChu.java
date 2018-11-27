@@ -1053,7 +1053,7 @@ public class ViewTrangChu extends JFrame {
 //						+ text + "'";
 				String sql = "SELECT * FROM(SELECT MaSanPham,TenSanPham,GiaNhap,GiaBan,TenHangSanXuat,TonKho,Image,ChuThich FROM loaisanpham,(SELECT * FROM sanpham,hangsanxuat WHERE sanpham.HangSanXuat = hangsanxuat.MaHangSanXuat) AS bang1 WHERE bang1.MaLoaiSanPham = loaisanpham.MaLoaiSanPham) AS bang2 WHERE bang2.TenSanPham = '"
 						+ text + "'";
-				System.out.println("sql là " + sql);
+//				System.out.println("sql là " + sql);
 				ResultSet rs = Manager.connection.excuteQuerySelect(sql);
 				int c = 0;
 				Object[] obj = new Object[] { "STT", "Mã Sản Phẩm", "Tên sản phẩm", "Loại sản phẩm", "Giá nhập",
