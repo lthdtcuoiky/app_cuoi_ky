@@ -303,6 +303,7 @@ public class ViewDangNhap extends JFrame {
 				Manager.homePage.show();
 				this.dispose();
 			} else {
+				Manager.userView.addButton();
 				Manager.userView.show();
 				this.dispose();
 			}

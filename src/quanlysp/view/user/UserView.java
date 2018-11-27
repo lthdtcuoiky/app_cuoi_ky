@@ -146,6 +146,7 @@ public class UserView extends JFrame {
 			String location = "D:\\image\\image"+i+".jpg";
 			button.setIcon(new ImageIcon(location));
 			panel_san_pham.add(button);
+			System.out.println(i);
 		}
 	}
 }
