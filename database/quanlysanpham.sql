@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 25, 2018 lúc 04:16 AM
+-- Thời gian đã tạo: Th10 27, 2018 lúc 07:11 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
--- Phiên bản PHP: 7.2.10
+-- Phiên bản PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -77,44 +77,65 @@ INSERT INTO `hangsanxuat` (`MaHangSanXuat`, `TenHangSanXuat`) VALUES
 
 CREATE TABLE `hoadon` (
   `MaHoaDon` int(11) NOT NULL,
-  `MaKhachHang` int(11) DEFAULT NULL,
   `MaNhanVien` int(11) NOT NULL,
   `NgayLapHoaDon` date DEFAULT NULL,
   `TongTien` varchar(50) DEFAULT NULL,
-  `GhiChu` varchar(255) CHARACTER SET utf8 DEFAULT NULL
+  `GhiChu` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `MaKhachHang` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Đang đổ dữ liệu cho bảng `hoadon`
 --
 
-INSERT INTO `hoadon` (`MaHoaDon`, `MaKhachHang`, `MaNhanVien`, `NgayLapHoaDon`, `TongTien`, `GhiChu`) VALUES
-(7, 6, 11, '2018-11-19', '309000000', NULL),
-(13, 11, 6, '2018-11-18', '47000000', NULL),
-(17, 12, 11, '2018-11-08', '369000000', NULL),
-(20, 14, 11, '2018-11-15', '471000000', NULL),
-(21, 6, 1, NULL, '0', ''),
-(22, 11, 1, NULL, '0', ''),
-(23, 11, 1, '2018-11-20', '0', ''),
-(24, 6, 1, NULL, '0', ''),
-(25, 6, 1, NULL, '0', ''),
-(26, 6, 1, NULL, '0', ''),
-(27, 11, 1, '2018-11-20', '0', ''),
-(28, 6, 1, NULL, '0', ''),
-(29, 6, 1, NULL, '0', ''),
-(30, 6, 1, NULL, '0', ''),
-(31, 6, 1, NULL, '0', ''),
-(32, 6, 1, NULL, '0', ''),
-(33, 6, 1, NULL, '0', ''),
-(34, 6, 1, NULL, '0', ''),
-(35, 6, 1, NULL, '0', ''),
-(36, 11, 1, NULL, '0', ''),
-(37, 11, 1, NULL, '0', ''),
-(38, 11, 1, NULL, '0', ''),
-(39, 11, 1, NULL, '0', ''),
-(40, 11, 1, NULL, '0', ''),
-(41, 11, 1, NULL, '0', ''),
-(42, 6, 1, NULL, '0', '');
+INSERT INTO `hoadon` (`MaHoaDon`, `MaNhanVien`, `NgayLapHoaDon`, `TongTien`, `GhiChu`, `MaKhachHang`) VALUES
+(7, 11, '2018-11-19', '309000000', NULL, NULL),
+(13, 6, '2018-11-18', '47000000', NULL, NULL),
+(17, 11, '2018-11-08', '369000000', NULL, NULL),
+(20, 11, '2018-11-15', '471000000', NULL, NULL),
+(21, 1, NULL, '0', '', NULL),
+(22, 1, NULL, '0', '', NULL),
+(23, 1, '2018-11-20', '0', '', NULL),
+(24, 1, NULL, '0', '', NULL),
+(25, 1, NULL, '0', '', NULL),
+(26, 1, NULL, '0', '', NULL),
+(27, 1, '2018-11-20', '0', '', NULL),
+(28, 1, NULL, '0', '', NULL),
+(29, 1, NULL, '0', '', NULL),
+(30, 1, NULL, '0', '', NULL),
+(31, 1, NULL, '0', '', NULL),
+(32, 1, NULL, '0', '', NULL),
+(33, 1, NULL, '0', '', NULL),
+(34, 1, NULL, '0', '', NULL),
+(35, 1, NULL, '0', '', NULL),
+(36, 1, NULL, '0', '', NULL),
+(37, 1, NULL, '0', '', NULL),
+(38, 1, NULL, '0', '', NULL),
+(39, 1, NULL, '0', '', NULL),
+(40, 1, NULL, '0', '', NULL),
+(41, 1, NULL, '0', '', NULL),
+(42, 1, NULL, '0', '', NULL),
+(43, 1, NULL, '0', '', NULL),
+(44, 1, NULL, '0', '', NULL),
+(45, 1, NULL, '0', 'dsdsd', NULL),
+(49, 1, NULL, '0', '', 1),
+(50, 1, NULL, '0', '', 1),
+(54, 1, NULL, '0', '', 1),
+(55, 1, NULL, '0', '', 1),
+(56, 1, NULL, '0', '', 1),
+(57, 1, NULL, '0', '', 1),
+(58, 1, NULL, '0', '', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `hoadon_sanpham`
+--
+
+CREATE TABLE `hoadon_sanpham` (
+  `MaHoaDon` int(11) NOT NULL,
+  `MaSanPham` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -138,7 +159,7 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`STT`, `MaKhachHang`, `TenKhachHang`, `GioiTinh`, `DiaChi`, `SDT`, `ChuThich`, `NgaySinh`) VALUES
-(1, 6, 'Hoàng Văn Nam', 'Nam', 'Hà Nội', '0909898964', 'Null', '1998-11-05');
+(1, 1, 'Hoàng Văn Nam', 'Nam', 'Hà Nội', '0909898964', 'Null', '1998-11-05');
 
 -- --------------------------------------------------------
 
@@ -147,21 +168,21 @@ INSERT INTO `khachhang` (`STT`, `MaKhachHang`, `TenKhachHang`, `GioiTinh`, `DiaC
 --
 
 CREATE TABLE `loaisanpham` (
-  `MaLoaiSanPham` int(11) NOT NULL,
-  `TenLoaiSanPham` varchar(50) CHARACTER SET utf8 DEFAULT NULL
+  `TenLoaiSanPham` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `MaLoaiSanPham` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Đang đổ dữ liệu cho bảng `loaisanpham`
 --
 
-INSERT INTO `loaisanpham` (`MaLoaiSanPham`, `TenLoaiSanPham`) VALUES
-(1, 'Đồ nướng'),
-(2, 'Đồ luộc'),
-(3, 'Đồ chiên'),
-(4, 'Đồ nương'),
-(5, 'Đồ chiên'),
-(9, 'Đồ tái');
+INSERT INTO `loaisanpham` (`TenLoaiSanPham`, `MaLoaiSanPham`) VALUES
+('Đồ nướng', 1),
+('Đồ luộc', 2),
+('Đồ chiên', 3),
+('Đồ nương', 4),
+('Đồ chiên', 5),
+('Đồ tái', 6);
 
 -- --------------------------------------------------------
 
@@ -188,7 +209,7 @@ CREATE TABLE `nhanvien` (
 INSERT INTO `nhanvien` (`MaNhanVien`, `TenNhanVien`, `NgaySinh`, `GioiTinh`, `NgayVaoLam`, `ChucVu`, `DiaChi`, `SoDT`, `GhiChu`) VALUES
 (1, 'Hoang Tuấn Anh', '1996-12-25', b'0', '2016-01-01', 1, '51-102 Nguyễn Đồng', '01628225158', NULL),
 (2, 'Phạm Văn Toàn', '1997-01-02', b'0', '2018-11-13', 2, 'Hà Nội', '09878338172', NULL),
-(3, 'Hoàng Tuấn Anh', '1999-10-09', b'0', '2018-11-21', 1, 'Hà Nội', '01628225158', 'Là người vui tính , hòa đồng');
+(3, 'Hoàng Tuấn Anh', '1999-10-09', b'0', '2016-11-21', 0, 'Hà Nội', '01628225158', '');
 
 -- --------------------------------------------------------
 
@@ -253,12 +274,10 @@ CREATE TABLE `quyen` (
 --
 
 INSERT INTO `quyen` (`MaQuyen`, `TenQuyen`, `ChuThich`) VALUES
-(1, 'Quản Trị Viên', NULL),
-(2, 'Kế Toán', NULL),
-(3, 'Thu Ngân', NULL),
-(4, 'Bảo Vệ', NULL),
-(5, 'New', NULL),
-(6, 'Giám Đốc', NULL);
+(1, 'admin', 'quản lý'),
+(2, 'user', 'người dùng'),
+(3, 'admin', 'giám đốc'),
+(4, 'admin', 'trưởng quầy');
 
 -- --------------------------------------------------------
 
@@ -269,23 +288,47 @@ INSERT INTO `quyen` (`MaQuyen`, `TenQuyen`, `ChuThich`) VALUES
 CREATE TABLE `sanpham` (
   `MaSanPham` int(11) NOT NULL,
   `TenSanPham` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
-  `LoaiSanPham` int(11) DEFAULT NULL,
   `HangSanXuat` int(11) DEFAULT NULL,
   `GiaNhap` varchar(100) DEFAULT NULL,
   `GiaBan` varchar(100) DEFAULT NULL,
   `TonKho` int(11) DEFAULT NULL,
   `TrangThai` bit(1) DEFAULT NULL,
   `Image` varchar(150) DEFAULT NULL,
-  `ChuThich` varchar(255) CHARACTER SET utf8 DEFAULT NULL
+  `ChuThich` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `MaLoaiSanPham` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Đang đổ dữ liệu cho bảng `sanpham`
 --
 
-INSERT INTO `sanpham` (`MaSanPham`, `TenSanPham`, `LoaiSanPham`, `HangSanXuat`, `GiaNhap`, `GiaBan`, `TonKho`, `TrangThai`, `Image`, `ChuThich`) VALUES
-(1, 'sony', 2, 4, '7456000', '7688800', 34, b'0', '/hinhsanpham/apple.png', NULL),
-(3, 'htc 10', 2, 3, '18000000', '19700000', 19, b'0', '/hinhsanpham/.apple', NULL);
+INSERT INTO `sanpham` (`MaSanPham`, `TenSanPham`, `HangSanXuat`, `GiaNhap`, `GiaBan`, `TonKho`, `TrangThai`, `Image`, `ChuThich`, `MaLoaiSanPham`) VALUES
+(1, 'sony', 4, '7456000', '7688800', 34, b'0', '/hinhsanpham/apple.png', NULL, NULL),
+(3, 'htc 10', 3, '18000000', '19700000', 19, b'0', '/hinhsanpham/.apple', NULL, NULL),
+(4, 'sa', 8, '10', '10', 10, NULL, '', '', 1),
+(5, 'sa', 8, '10', '10', 10, NULL, '', '', 1),
+(6, 'sa', 8, '10', '10', 20, NULL, '', '', 1),
+(7, 'sa', 8, '10', '10', 20, NULL, '', '', 1),
+(8, 'sa', 8, '10', '10', 10, NULL, '', '', 1),
+(9, 'sa', 8, '10', '10', 10, NULL, '', '', 1),
+(10, 'sa', 8, '10', '10', 10, NULL, '', '', 1),
+(11, 'sa', 8, '10', '10', 10, NULL, '', '', 1),
+(12, 'sa', 8, '10', '10', 10, NULL, '', '', 1),
+(13, 'sa', 8, '10', '10', 10, NULL, '', '', 1),
+(14, 'sa', 8, '10', '10', 10, NULL, '', '', 1),
+(15, 'sa', 8, '10', '10', 10, NULL, '', '', 1),
+(16, 'sa', 8, '10', '10', 20, NULL, '', '', 1),
+(17, 'sa', 8, '10', '10', 20, NULL, '', '', 1),
+(18, 'sa', 8, '10', '10', 20, NULL, '', '', 1),
+(19, 'sa', 7, '10', '10', 20, NULL, '', '', 1),
+(20, 'sa', 8, '10', '10', 20, NULL, '', '', 1),
+(21, 'sa', 7, '10', '10', 25, NULL, 'C:UsersduyDocumentsGitHubappssrcquanlysputilimagesdoitac.png', 'ffsdsdsdsd', 1),
+(22, 'sa', 7, '10', '10', 20, NULL, '', '', 1),
+(23, 'sa', 7, '10', '10', 20, NULL, '', '', 1),
+(24, 'sa', 7, '10', '10', 20, NULL, '', '', 1),
+(25, 'sa', 7, '10', '10', 20, NULL, '', '', 1),
+(26, 'sa', 7, '10', '10', 20, NULL, '', '', 1),
+(27, 'sa', 7, '10', '10', 20, NULL, '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -294,9 +337,7 @@ INSERT INTO `sanpham` (`MaSanPham`, `TenSanPham`, `LoaiSanPham`, `HangSanXuat`, 
 --
 
 CREATE TABLE `users` (
-  `ID` int(11) NOT NULL,
-  `MaNhanVien` int(11) DEFAULT NULL,
-  `TenDangNhap` varchar(50) DEFAULT NULL,
+  `TenDangNhap` varchar(50) NOT NULL,
   `Password` varchar(50) DEFAULT NULL,
   `Quyen` int(11) DEFAULT NULL,
   `ChuThich` varchar(255) CHARACTER SET utf8 DEFAULT NULL
@@ -306,9 +347,16 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`ID`, `MaNhanVien`, `TenDangNhap`, `Password`, `Quyen`, `ChuThich`) VALUES
-(1, 1, 'admin', 'admin', 1, 'Nguoi thẩm quyền'),
-(2, 3, 'tuananh', '1999', 2, 'Người thẩm quyền');
+INSERT INTO `users` (`TenDangNhap`, `Password`, `Quyen`, `ChuThich`) VALUES
+('admin', 'admin', 1, 'Nguoi thẩm quyền'),
+('duy123456', 'duy123456', 2, 'người dùng'),
+('duynguyen111', 'duynguyen111', 2, 'người dùng'),
+('duynguyen123', 'duynguyen99', 2, 'người dùng'),
+('duynguyen1234', 'duynguyen1234', 2, 'người dùng'),
+('duynguyen12345', 'duynguyen123', 2, 'người dùng'),
+('duynguyen8', 'duynguyen8', 2, 'người dùng'),
+('duynguyen991', 'duynguyen99', 2, 'người dùng'),
+('vanduy123', 'vanduy123', 2, 'người dùng');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -330,7 +378,15 @@ ALTER TABLE `hangsanxuat`
 -- Chỉ mục cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  ADD PRIMARY KEY (`MaHoaDon`);
+  ADD PRIMARY KEY (`MaHoaDon`),
+  ADD KEY `fk_khachhang_hoadon` (`MaKhachHang`);
+
+--
+-- Chỉ mục cho bảng `hoadon_sanpham`
+--
+ALTER TABLE `hoadon_sanpham`
+  ADD PRIMARY KEY (`MaHoaDon`),
+  ADD KEY `fk_sanpham` (`MaSanPham`);
 
 --
 -- Chỉ mục cho bảng `khachhang`
@@ -348,7 +404,8 @@ ALTER TABLE `loaisanpham`
 -- Chỉ mục cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  ADD PRIMARY KEY (`MaNhanVien`);
+  ADD PRIMARY KEY (`MaNhanVien`),
+  ADD KEY `fk_nhanvien_chucvu` (`ChucVu`);
 
 --
 -- Chỉ mục cho bảng `nhaphanphoi`
@@ -372,13 +429,15 @@ ALTER TABLE `quyen`
 -- Chỉ mục cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  ADD PRIMARY KEY (`MaSanPham`);
+  ADD PRIMARY KEY (`MaSanPham`),
+  ADD KEY `fk_loaisanpham` (`MaLoaiSanPham`);
 
 --
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`TenDangNhap`),
+  ADD KEY `fk_quyendangnhap` (`Quyen`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -394,13 +453,19 @@ ALTER TABLE `hangsanxuat`
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MaHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `MaHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+
+--
+-- AUTO_INCREMENT cho bảng `khachhang`
+--
+ALTER TABLE `khachhang`
+  MODIFY `MaKhachHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `loaisanpham`
 --
 ALTER TABLE `loaisanpham`
-  MODIFY `MaLoaiSanPham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `MaLoaiSanPham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `nhanvien`
@@ -424,19 +489,48 @@ ALTER TABLE `phieunhap`
 -- AUTO_INCREMENT cho bảng `quyen`
 --
 ALTER TABLE `quyen`
-  MODIFY `MaQuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `MaQuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `MaSanPham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MaSanPham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `hoadon`
+--
+ALTER TABLE `hoadon`
+  ADD CONSTRAINT `fk_khachhang_hoadon` FOREIGN KEY (`MaKhachHang`) REFERENCES `khachhang` (`MaKhachHang`);
+
+--
+-- Các ràng buộc cho bảng `hoadon_sanpham`
+--
+ALTER TABLE `hoadon_sanpham`
+  ADD CONSTRAINT `fk_hoadon` FOREIGN KEY (`MaHoaDon`) REFERENCES `hoadon` (`MaHoaDon`),
+  ADD CONSTRAINT `fk_sanpham` FOREIGN KEY (`MaSanPham`) REFERENCES `sanpham` (`MaSanPham`);
+
+--
+-- Các ràng buộc cho bảng `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  ADD CONSTRAINT `fk_nhanvien_chucvu` FOREIGN KEY (`ChucVu`) REFERENCES `chucvu` (`MaChucVu`);
+
+--
+-- Các ràng buộc cho bảng `sanpham`
+--
+ALTER TABLE `sanpham`
+  ADD CONSTRAINT `fk_loaisanpham` FOREIGN KEY (`MaLoaiSanPham`) REFERENCES `loaisanpham` (`MaLoaiSanPham`);
+
+--
+-- Các ràng buộc cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  ADD CONSTRAINT `fk_quyendangnhap` FOREIGN KEY (`Quyen`) REFERENCES `quyen` (`MaQuyen`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
