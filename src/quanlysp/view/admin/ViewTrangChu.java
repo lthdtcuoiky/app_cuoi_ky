@@ -1051,7 +1051,7 @@ public class ViewTrangChu extends JFrame {
 				String text = textField_tim_kiem_sp.getText().trim();
 //				String sql = "SELECT * FROM HangSanXuat,sanpham,loaisanpham WHERE HangSanXuat.MaHangSanXuat = sanpham.HangSanXuat AND loaisanpham.MaLoaiSanPham = sanpham.MaLoaiSanPham AND sanpham.TenSanPham  = '"
 //						+ text + "'";
-				String sql = "SELECT * FROM(SELECT MaSanPham,TenSanPham,GiaNhap,GiaBan,TenHangSanXuat,TonKho,Image,ChuThich FROM loaisanpham,(SELECT * FROM sanpham,hangsanxuat WHERE sanpham.HangSanXuat = hangsanxuat.MaHangSanXuat) AS bang1 WHERE bang1.MaLoaiSanPham = loaisanpham.MaLoaiSanPham) AS bang2 WHERE bang2.TenSanPham = '"
+				String sql = "SELECT * FROM(SELECT MaSanPham,TenSanPham,TenLoaiSanPham,GiaNhap,GiaBan,TenHangSanXuat,TonKho,Image,ChuThich FROM loaisanpham,(SELECT * FROM sanpham,hangsanxuat WHERE sanpham.HangSanXuat = hangsanxuat.MaHangSanXuat) AS bang1 WHERE bang1.MaLoaiSanPham = loaisanpham.MaLoaiSanPham) AS bang2 WHERE bang2.TenSanPham = '"
 						+ text + "'";
 				System.out.println("sql là " + sql);
 				ResultSet rs = Manager.connection.excuteQuerySelect(sql);
@@ -1067,7 +1067,7 @@ public class ViewTrangChu extends JFrame {
 						item[0] = c;
 						item[1] = rs.getInt("MaSanPham");
 						item[2] = rs.getString("TenSanPham");
-						item[2] = rs.getString("MaLoaiSanPham");
+						item[3] = rs.getString("TenLoaiSanPham");
 						item[4] = rs.getInt("GiaNhap");
 						item[5] = rs.getInt("GiaBan");
 						item[6] = rs.getString("TenHangSanXuat");
