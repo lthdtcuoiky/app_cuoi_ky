@@ -90,7 +90,6 @@ public class ViewDangKy extends JFrame {
 		lblRegisterTitle.setText("Tạo Tài Khoản");
 
 		lblUserName.setText("Tên đăng nhập");
-
 		lblPassword.setText("Mật khẩu");
 
 		btnĐangKy.setForeground(new java.awt.Color(255, 153, 51));
