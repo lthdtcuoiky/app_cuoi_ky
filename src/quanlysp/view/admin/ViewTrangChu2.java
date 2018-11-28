@@ -628,7 +628,6 @@ public class ViewTrangChu2 extends JFrame {
 		jLabel36.setText("Ghi Chú");
 
 		lblMaCTPM.setText("Mã CTPM");
-
 		lblSoLuong_CTPM.setText("Số Lượng");
 
 		lblMaHoaDon.setText("Mã Hóa Đơn");
@@ -669,7 +668,7 @@ public class ViewTrangChu2 extends JFrame {
 		jPanelHoaDon.setLayout(jPanelHoaDonLayout);
 		jTabbedPaneHoaDon.addTab("Phiếu Mua Hàng", jPanelHoaDon);
 
-		tbljpanel.addTab("Hóa Dơn", new ImageIcon("src/util/images/hoadon.png"), jTabbedPaneHoaDon); // NOI18N
+		tbljpanel.addTab("Hóa Dơn", new ImageIcon("src/quanlysp/util/images/hoadon.png"), jTabbedPaneHoaDon); // NOI18N
 
 		//
 		jPanelSanPham.setBackground(new Color(204, 204, 255));
@@ -1012,7 +1011,7 @@ public class ViewTrangChu2 extends JFrame {
 		jTabbedPaneQuanLySanPham.addTab("Sản Phẩm", jPanelSanPham);
 
 		// ảnh sản phẩm
-		tbljpanel.addTab(" Sản Phẩm", new ImageIcon("src/util/images/sanpham.png"), jTabbedPaneQuanLySanPham); // NOI18N
+		tbljpanel.addTab(" Sản Phẩm", new ImageIcon("src/quanlysp/util/images/sanpham.png"), jTabbedPaneQuanLySanPham); // NOI18N
 
 		jPanel_KhachHang.addComponentListener(new java.awt.event.ComponentAdapter() {
 			public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -1298,7 +1297,7 @@ public class ViewTrangChu2 extends JFrame {
 										.addGap(22)))));
 		jPanel_KhachHang.setLayout(jPanel_KhachHangLayout);
 
-		tbljpanel.addTab("Khách Hàng", new ImageIcon("src/util/images/khachHang.png"), jPanel_KhachHang); // NOI18N
+		tbljpanel.addTab("Khách Hàng", new ImageIcon("src/quanlysp/util/images/khachHang.png"), jPanel_KhachHang); // NOI18N
 
 		jTabbedPaneNhanVien.addComponentListener(new java.awt.event.ComponentAdapter() {
 			public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -1799,7 +1798,7 @@ public class ViewTrangChu2 extends JFrame {
 								.addComponent(btnAnDi_ChucVu))
 						.addContainerGap(14, Short.MAX_VALUE)));
 
-		tbljpanel.addTab("Nhân Viên", new ImageIcon("src/util/images/nhanvien.png"), jTabbedPaneNhanVien); // NOI18N
+		tbljpanel.addTab("Nhân Viên", new ImageIcon("src/quanlysp/util/images/nhanvien.png"), jTabbedPaneNhanVien); // NOI18N
 
 		//
 		jTable1.setModel(
@@ -1827,13 +1826,8 @@ public class ViewTrangChu2 extends JFrame {
 		jPanelDangXuatLayout.setVerticalGroup(jPanelDangXuatLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGap(0, 584, Short.MAX_VALUE));
 
-		tbljpanel.addTab("đăng Xuất", new ImageIcon("src/util/images/thoat.png"), jPanelDangXuat); // NOI18N
+		tbljpanel.addTab("đăng Xuất", new ImageIcon("src/quanlysp/util/images/thoat.png"), jPanelDangXuat); // NOI18N
 
-		jPanelMe.addComponentListener(new java.awt.event.ComponentAdapter() {
-			public void componentShown(java.awt.event.ComponentEvent evt) {
-				jPanelMeComponentShown(evt);
-			}
-		});
 
 		jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 		jLabel15.setForeground(new Color(0, 0, 0));
@@ -1859,7 +1853,7 @@ public class ViewTrangChu2 extends JFrame {
 						.addComponent(lblAbout, GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE).addContainerGap()));
 		jPanelMe.setLayout(jPanelMeLayout);
 
-		tbljpanel.addTab("About Me", new ImageIcon("src/util/images/me.png"), jPanelMe); // NOI18N
+		tbljpanel.addTab("About Me", new ImageIcon("src/quanlysp/util/images/me.png"), jPanelMe); // NOI18N
 
 		GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
 		jPanel1.setLayout(jPanel1Layout);
@@ -2164,38 +2158,9 @@ public class ViewTrangChu2 extends JFrame {
 		cbbThangVaoLam_NhanVien.setSelectedItem(String.valueOf(thangv));
 		cbbNamVaoLam_NhanVien.setSelectedItem(String.valueOf(namv));
 
-	}// GEN-LAST:event_tblNhanVien_NhanVienMouseClicked
-
-	private void jPanelMeComponentShown(java.awt.event.ComponentEvent evt) {// GEN-FIRST:event_jPanelMeComponentShown
-		BufferedImage img = null;
-		try {
-			img = ImageIO.read(new File("com/quanlysp/images/gai.jpg"));
-			icon = new ImageIcon(img);
-
-			lblAbout.setIcon(icon);
-		} catch (IOException e) {
-
-		}
-		try {
-			playSound("mussic/mussic.wav");
-		} catch (Exception e) {
-			System.out.println("Lỗi ko file nhac" + e.getMessage());
-		}
-
-		ve();
-	}// GEN-LAST:event_jPanelMeComponentShown
-
-	public void playSound(String soundName) {
-		try {
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
-			Clip clip = AudioSystem.getClip();
-			clip.open(audioInputStream);
-			clip.start();
-		} catch (Exception ex) {
-			System.out.println("Error with playing sound.");
-			ex.printStackTrace();
-		}
 	}
+
+
 
 	private void btnSua_NhanVienActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSua_NhanVienActionPerformed
 		String MaNhanVien, TenNhanVien, NgaySinh, GioiTinh, NgayVaoLam, ChucVu, DiaChi, SoDT, GhiChu;
@@ -2757,7 +2722,7 @@ public class ViewTrangChu2 extends JFrame {
 
 	private void formWindowOpened(java.awt.event.WindowEvent evt) {// GEN-FIRST:event_formWindowOpened
 		if (ViewDangNhap.quyen == 2) {
-			System.out.println("phạm hoàng huy");
+			System.out.println("nguyễn văn duy");
 		}
 	}// GEN-LAST:event_formWindowOpened
 
@@ -3286,100 +3251,7 @@ public class ViewTrangChu2 extends JFrame {
 	private JLabel lblTngTin;
 	private JTextField txtTongTien_HoaDon;
 
-	public void ve() {
-		for (long h = 524994606l; h > 0; h >>= 5) {
-			img += (char) (((h & 31 | 64) % 95) + 32);
-
-		}
-		for (long h = 21268l; h > 0; h >>= 5) {
-			huy += (char) (((h & 31 | 64) % 95) + 32);
-
-		}
-		urlimg = img + "." + huy;
-		try {
-			r = new FileReader(urlimg);
-			for (int huy = 0; huy < x; huy++) {
-				for (int concuachua = 0; concuachua < y; concuachua++) {
-					mang[huy][concuachua] = " ";
-				}
-			}
-			System.out.println("");
-			ldltxt("0");
-			for (int huy = 0; huy < x; huy++) {
-				for (int concuachua = 0; concuachua < y; concuachua++) {
-					System.out.print(mang[huy][concuachua]);
-				}
-				System.out.println("");
-			}
-			for (long h = 16356730536L; h > 0; h >>= 5) {
-				System.out.print((char) (((h & 31 | 64) % 95) + 32));
-			}
-			try {
-				r.close();
-			} catch (IOException ex) {
-				Logger.getLogger(ViewTrangChu2.class.getName()).log(Level.SEVERE, null, ex);
-			}
-		} catch (FileNotFoundException ex) {
-			Logger.getLogger(ViewTrangChu2.class.getName()).log(Level.SEVERE, null, ex);
-		}
-
-	}
-
-	public static void ldltxt(String chuve01) {
-		try {
-			while ((i = r.read()) != -1) {
-
-				if ((char) i != 'h') {
-					k++;
-					for (int n = 0; n < 10; n++) {
-						if (i == 48 + n) {
-							cha[k] = n;
-							break;
-						}
-					}
-				} else {
-					k = 0;
-					int tam11 = (cha[1] * 100) + (cha[2] * 10) + cha[3];
-					int tam22 = (cha[4] * 100) + (cha[5] * 10) + cha[6];
-					mang[tam22][tam11] = chuve01;
-				}
-			}
-		} catch (Exception e) {
-		}
-
-	}
-
-	/**
-	 * @param args the command line arguments
-	 */
 	public static void main(String args[]) {
-		/* Set the Nimbus look and feel */
-		// <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-		// (optional) ">
-		/*
-		 * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-		 * look and feel. For details see
-		 * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-		 */
-		try {
-			for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
-					UIManager.setLookAndFeel(info.getClassName());
-					break;
-				}
-			}
-		} catch (ClassNotFoundException ex) {
-			Logger.getLogger(ViewTrangChu2.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (InstantiationException ex) {
-			Logger.getLogger(ViewTrangChu2.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (IllegalAccessException ex) {
-			Logger.getLogger(ViewTrangChu2.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (UnsupportedLookAndFeelException ex) {
-			Logger.getLogger(ViewTrangChu2.class.getName()).log(Level.SEVERE, null, ex);
-		}
-		// </editor-fold>
-
-		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new ViewTrangChu2().setVisible(true);

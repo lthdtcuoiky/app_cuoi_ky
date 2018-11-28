@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 28, 2018 lúc 01:13 PM
+-- Thời gian đã tạo: Th10 28, 2018 lúc 05:09 PM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.10
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `quanlysanpham`
+-- Cơ sở dữ liệu: `quanlysanpham2`
 --
 
 -- --------------------------------------------------------
@@ -60,14 +60,14 @@ CREATE TABLE `hangsanxuat` (
 --
 
 INSERT INTO `hangsanxuat` (`MaHangSanXuat`, `TenHangSanXuat`) VALUES
-(1, 'Hạ Long Canfoco'),
-(2, 'Royal Foods'),
-(3, 'Minh Trung'),
-(4, 'Antesco'),
-(5, 'Bảo Long Havi'),
-(6, 'Vissan'),
-(7, 'Tuyền Ký'),
-(8, 'Seaspimex');
+(1, 'StarBucks'),
+(2, 'KFC'),
+(3, 'SubWay'),
+(4, 'McDonald\'s'),
+(5, 'PizzaHut'),
+(6, 'BurgerKing'),
+(7, 'Baskin Robbins'),
+(8, 'Dunkin\' Donuts\r\n');
 
 -- --------------------------------------------------------
 
@@ -89,39 +89,13 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`MaHoaDon`, `MaNhanVien`, `NgayLapHoaDon`, `TongTien`, `GhiChu`, `MaKhachHang`) VALUES
-(7, NULL, '2018-11-19', '309000000', NULL, NULL),
-(13, NULL, '2018-11-18', '47000000', NULL, NULL),
-(17, NULL, '2018-11-08', '369000000', NULL, NULL),
-(20, NULL, '2018-11-15', '471000000', NULL, NULL),
-(21, NULL, NULL, '0', '', NULL),
-(22, NULL, NULL, '0', '', NULL),
-(23, NULL, '2018-11-20', '0', '', NULL),
-(24, NULL, NULL, '0', '', NULL),
-(25, NULL, NULL, '0', '', NULL),
-(26, NULL, NULL, '0', '', NULL),
-(27, NULL, '2018-11-20', '0', '', NULL),
-(28, NULL, NULL, '0', '', NULL),
-(29, NULL, NULL, '0', '', NULL),
-(30, NULL, NULL, '0', '', NULL),
-(31, NULL, NULL, '0', '', NULL),
-(32, NULL, NULL, '0', '', NULL),
-(33, NULL, NULL, '0', '', NULL),
-(34, NULL, NULL, '0', '', NULL),
-(35, NULL, NULL, '0', '', NULL),
-(36, NULL, NULL, '0', '', NULL),
-(37, NULL, NULL, '0', '', NULL),
-(38, NULL, NULL, '0', '', NULL),
-(39, NULL, NULL, '0', '', NULL),
-(40, NULL, NULL, '0', '', NULL),
-(41, NULL, NULL, '0', '', NULL),
-(42, NULL, NULL, '0', '', NULL),
-(43, NULL, NULL, '0', '', NULL),
-(44, NULL, NULL, '0', '', NULL),
-(45, NULL, NULL, '0', 'dsdsd', NULL),
-(48, NULL, '2018-11-26', '0', 'dsdsds', 1),
-(49, NULL, NULL, '0', '', 1),
-(50, NULL, NULL, '0', '', 1),
-(51, NULL, NULL, '0', '', 1);
+(7, 2, '2018-11-19', '30900000', '', 1),
+(13, 3, '2018-11-18', '4700000', NULL, 1),
+(17, 2, '2017-11-08', '36900000', '', 4),
+(20, 1, '2018-11-15', '47100000', NULL, 2),
+(21, 2, '2017-12-12', '50999922', NULL, 3),
+(22, 2, '2016-10-02', '82837182', NULL, 3),
+(23, 1, '2018-11-20', '10000000', '', 2);
 
 -- --------------------------------------------------------
 
@@ -156,7 +130,10 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`STT`, `MaKhachHang`, `TenKhachHang`, `GioiTinh`, `DiaChi`, `SDT`, `ChuThich`, `NgaySinh`) VALUES
-(1, 1, 'Hoàng Văn Nam', 'Nam', 'Hà Nội', '0909898964', 'Null', '1998-11-05');
+(1, 1, 'Hoàng Văn Nam', 'Nam', 'Hà Nội', '0909898964', 'Null', '1998-11-05'),
+(2, 2, 'Triệu Khánh Huyền', 'Nữ', 'Hà Nội', '9837644444', NULL, '0000-00-00'),
+(3, 3, 'Quách Trung Thắng', 'Nam', 'TPHCM', '212332272', NULL, '0000-00-00'),
+(4, 4, 'Kiều Thị Hải Anh', 'Nữ', 'Hà Nội', '926868888', NULL, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -174,12 +151,12 @@ CREATE TABLE `loaisanpham` (
 --
 
 INSERT INTO `loaisanpham` (`TenLoaiSanPham`, `MaLoaiSanPham`) VALUES
-('Đồ nướng', 1),
-('Đồ luộc', 2),
-('Đồ chiên', 3),
-('Đồ nương', 4),
-('Đồ chiên', 5),
-('Đồ tái', 6);
+('Đồ ăn nhanh', 1),
+('Bánh ngọt', 2),
+('Snack', 3),
+('Cocktail', 4),
+('Đồ uống', 5),
+('Đồ ăn vặt', 6);
 
 -- --------------------------------------------------------
 
@@ -204,9 +181,9 @@ CREATE TABLE `nhanvien` (
 --
 
 INSERT INTO `nhanvien` (`MaNhanVien`, `TenNhanVien`, `NgaySinh`, `GioiTinh`, `NgayVaoLam`, `ChucVu`, `DiaChi`, `SoDT`, `GhiChu`) VALUES
-(1, 'Hoang Tuấn Anh', '1996-12-25', b'0', '2016-01-01', 1, '51-102 Nguyễn Đồng', '01628225158', NULL),
+(1, 'Hoàng Đức Dương', '1996-12-25', b'0', '2018-01-01', 1, '51-102 Nguyễn Đồng', '01628225158', 'nhân viên mới'),
 (2, 'Phạm Văn Toàn', '1997-01-02', b'0', '2018-11-13', 2, 'Hà Nội', '09878338172', NULL),
-(3, 'Hoàng Tuấn Anh', '1999-10-09', b'0', '2018-11-21', 1, 'Hà Nội', '01628225158', 'Là người vui tính , hòa đồng');
+(3, 'Trương Văn Kiên', '1999-10-09', b'0', '2018-11-21', 1, 'Hà Nội', '01628225158', 'Là người vui tính , hòa đồng');
 
 -- --------------------------------------------------------
 
@@ -228,8 +205,12 @@ CREATE TABLE `nhaphanphoi` (
 --
 
 INSERT INTO `nhaphanphoi` (`MaNhaPhanPhoi`, `TenNhaPhanPhoi`, `DiaChi`, `SDT`, `Email`, `ChuThich`) VALUES
-(1, 'FPT Trading', 'Hồ Chí Minh', '098674322', 'motcucgach77@gmail.com', NULL),
-(2, 'docomo', 'Việt Nam', '0987848891', 'docomo@gmail.com', NULL);
+(2, 'FastFoodHN', 'Việt Nam', '0987848891', 'ffhn11@gmail.com', NULL),
+(3, 'Drink Sweet', 'VietNam', '0336576656', 'dinkngot123@gmail.com', NULL),
+(4, 'KissFood', 'VietNam', '474324318', 'ksd1@gmail.com', NULL),
+(5, 'TenTen', 'VietNam', '474222218', 'tenten222@gmail.com', NULL),
+(6, 'TeaFoodDr', 'VietNam', '234556666', 'teafooddr@gmail.com', NULL),
+(7, 'BookDrinkF', 'VietNam', '987772827', 'bdf0999@gmail.com', NULL);
 
 -- --------------------------------------------------------
 
@@ -251,8 +232,15 @@ CREATE TABLE `phieunhap` (
 --
 
 INSERT INTO `phieunhap` (`MaPhieuNhap`, `MaNhaPhanPhoi`, `TongTien`, `NgayNhap`, `ChuThich`, `MaNhanVien`) VALUES
-(1, 2, '10000000', '2017-06-03', NULL, NULL),
-(2, 2, '19000000', '2018-11-07', NULL, NULL);
+(1, 2, '10000000', '2017-06-03', NULL, 1),
+(2, 2, '19000000', '2018-11-07', NULL, 3),
+(3, 4, '24500000', '2018-09-10', NULL, 3),
+(4, 6, '40000000', '2017-03-29', NULL, 3),
+(5, 5, '32200000', '2016-12-02', NULL, 3),
+(6, 3, '90000000', '2018-11-05', NULL, 1),
+(7, 7, '76200000', '2017-08-06', NULL, 1),
+(8, 7, '26600000', '2016-03-01', NULL, 2),
+(9, 6, '19800000', '2017-10-10', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -300,13 +288,16 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`MaSanPham`, `TenSanPham`, `HangSanXuat`, `GiaNhap`, `GiaBan`, `TonKho`, `TrangThai`, `Image`, `ChuThich`, `MaLoaiSanPham`) VALUES
-(1, 'sony', 4, '7456000', '7688800', 34, b'0', '/hinhsanpham/apple.png', NULL, NULL),
-(3, 'htc 10', 3, '18000000', '19700000', 19, b'0', '/hinhsanpham/.apple', NULL, NULL),
-(4, 'h', 1, '5', '5', 44, NULL, '', '', 1),
-(5, 'h', 1, '5', '5', 44, NULL, '', '', 1),
-(6, 'h', 1, '5', '5', 44, NULL, '', '', 1),
-(7, '3', 1, '5', '5', 44, NULL, '', '', 1),
-(8, '333', 1, '3', '333', 33333, NULL, '', '', 3);
+(1, 'Frappuccino ', 1, '74560', '100000', 200, b'0', '/hinhsanpham/apple.png', NULL, NULL),
+(2, 'Pizza', 5, '50000', '65000', 10000, b'0', '/hinhsanpham/.apple', NULL, NULL),
+(3, 'Big Philly Cheesesteak', 3, '120000', '150000', 500, NULL, '', '', 1),
+(4, 'Hamburger bò', 4, '35000', '55000', 1000, NULL, '', '', 1),
+(5, 'Burger Whopper', 6, '60000', '75000', 2000, NULL, '', '', 1),
+(6, 'Bánh Donuts', 8, '37000', '55000', 1500, NULL, '', '', 1),
+(7, 'Kem', 7, '20000', '30000', 33333, NULL, '', '', 3),
+(8, 'pizza thịt gà', 2, '32000', '56000', 2000, NULL, NULL, NULL, NULL),
+(9, 'Bánh mì SubWay', 3, '30000', '56000', 3550, NULL, NULL, NULL, NULL),
+(10, 'donut chocolate', 8, '22000', '46000', 7000, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -439,7 +430,7 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `MaKhachHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MaKhachHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `loaisanpham`
@@ -457,13 +448,13 @@ ALTER TABLE `nhanvien`
 -- AUTO_INCREMENT cho bảng `nhaphanphoi`
 --
 ALTER TABLE `nhaphanphoi`
-  MODIFY `MaNhaPhanPhoi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MaNhaPhanPhoi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `phieunhap`
 --
 ALTER TABLE `phieunhap`
-  MODIFY `MaPhieuNhap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MaPhieuNhap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `quyen`
@@ -475,7 +466,7 @@ ALTER TABLE `quyen`
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `MaSanPham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `MaSanPham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

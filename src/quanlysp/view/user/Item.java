@@ -30,6 +30,7 @@ public class Item extends JFrame {
 		btnLinkImg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ThongTinMatHang info = new ThongTinMatHang(name, price, tonKho);
+				info.setVisible(true);
 			}
 		});
 		

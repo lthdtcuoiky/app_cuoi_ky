@@ -10,6 +10,8 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -25,7 +27,7 @@ public class HoaDon extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HoaDon frame = new HoaDon("Bánh Sữa", "10", "500000");
+					HoaDon frame = new HoaDon("Bánh Sữa", "10", 590999);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,8 +39,8 @@ public class HoaDon extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public HoaDon(String nameItem, String countItem,String totalMoney) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public HoaDon(String nameItem, String countItem,double totalMoney) {
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 305, 426);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -77,11 +79,11 @@ public class HoaDon extends JFrame {
 		
 		JLabel lb_ten_san_pham = new JLabel(nameItem);
 		
-		JLabel lb_so_luong_san_pham = new JLabel(countItem + " (vnđ)");
+		JLabel lb_so_luong_san_pham = new JLabel(countItem);
 		
 		JLabel lb_title_tong_tien = new JLabel("Tổng TIền");
 		
-		JLabel lb_tong_tien = new JLabel(totalMoney);
+		JLabel lb_tong_tien = new JLabel(Double.toString(totalMoney) + " (vnđ)");
 		GroupLayout gl_panel_thong_tin_dat_hang = new GroupLayout(panel_thong_tin_dat_hang);
 		gl_panel_thong_tin_dat_hang.setHorizontalGroup(
 			gl_panel_thong_tin_dat_hang.createParallelGroup(Alignment.LEADING)
