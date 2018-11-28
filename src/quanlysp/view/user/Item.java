@@ -2,6 +2,8 @@ package view.user;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -11,6 +13,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.table.DefaultTableModel;
+
+import controlller.Manager;
 
 public class Item extends JFrame {
 
@@ -18,14 +23,13 @@ public class Item extends JFrame {
 	public Item() {
 		
 	}
-	public JPanel getItems(String name,String price, String linkImg) {
+	public JPanel getItems(String name,String price, String linkImg,String tonKho) {
 		panelItem = new JPanel();
 		JButton btnLinkImg = new JButton();
 		btnLinkImg.setIcon(new ImageIcon(linkImg));
 		btnLinkImg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ThongTinMatHang thongTinMatHang = new ThongTinMatHang();
-				thongTinMatHang.setVisible(true);
+				ThongTinMatHang info = new ThongTinMatHang(name, price, tonKho);
 			}
 		});
 		
@@ -58,7 +62,6 @@ public class Item extends JFrame {
 		return panelItem;
 	}
 	public static void main(String[] args) {
-		System.out.println("hihi");
 //		JPanel panel = Item.getItems("hello", "baby", "em nè");
 //		panel.setVisible(true);
 	}

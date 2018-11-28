@@ -6,6 +6,8 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -20,6 +22,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.border.SoftBevelBorder;
+
+import controlller.Manager;
+
 import javax.swing.border.BevelBorder;
 
 public class UserView extends JFrame {
@@ -111,13 +116,27 @@ public class UserView extends JFrame {
 		String linkImg = null;
 		String name = null;
 		String price = null;
+		String soLuong = null;
+		String tonKho = null;
 		JPanel panel;
 		for (int i = 1; i <= 40; i++) {
 			linkImg = "D:\\image\\image" + i + ".jpg";
-			name = "Pepsi";
-			price = "500.000đ";
-			panel = new Item().getItems(name, price, linkImg);
+			String sql = "SELECT * FROM sanpham where sanpham.MaSanPham = " + i;
+			ResultSet rs = Manager.connection.excuteQuerySelect(sql);
+			try {
+				while(rs.next()) {
+					name = rs.getString("TenSanPham").trim();
+					price = rs.getString("GiaBan").trim();
+					soLuong = rs.getString("TonKho").trim();
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println(sql);
+			panel = new Item().getItems(name, price, linkImg,tonKho);
 			panel_san_pham.add(panel);
 		}
 	}
+
 }

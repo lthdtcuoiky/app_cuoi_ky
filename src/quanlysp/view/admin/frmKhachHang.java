@@ -453,7 +453,7 @@ public class frmKhachHang extends javax.swing.JFrame {
 		} else {
 			System.out.println("Thêm Thất Bại");
 		}
-		Manager.homePage.layDuLieuKhachHang();
+		Manager.homePage.LayDuLieuKhachHang();
 		Manager.homePage.SetCbbKhachHangfrm(txtTenKhachHang.getText());
 	}// GEN-LAST:event_btnThem_ActionPerformed
 
@@ -561,7 +561,7 @@ public class frmKhachHang extends javax.swing.JFrame {
 
 	private void jPanel_KhachHangComponentShown(java.awt.event.ComponentEvent evt) {// GEN-FIRST:event_jPanel_KhachHangComponentShown
 		rbtnNam.setSelected(true);
-		Manager.homePage.layDuLieuKhachHang();
+		Manager.homePage.LayDuLieuKhachHang();
 		cbbLoaiKhachHang
 				.setModel(Manager.homePage.LayDuLieucbb("LoaiKhachHang", "TenLoaiKhachHang", "MaLoaiKhachHang"));
 		for (int i = 1; i < 32; i++) {
