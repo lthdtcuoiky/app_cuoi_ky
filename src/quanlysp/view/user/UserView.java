@@ -68,14 +68,10 @@ public class UserView extends JFrame {
 
 		tabbedPane = new JTabbedPane(JTabbedPane.LEFT);
 		gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE)
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addComponent(tabbedPane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
-		);
+		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addComponent(tabbedPane,
+				GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE));
+		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.TRAILING).addComponent(tabbedPane,
+				Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE));
 		gl_panel.setHonorsVisibility(false);
 
 		tabbed_pane_SanPham = new JTabbedPane(JTabbedPane.TOP);

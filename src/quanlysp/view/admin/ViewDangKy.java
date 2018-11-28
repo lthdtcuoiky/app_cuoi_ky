@@ -198,7 +198,8 @@ public class ViewDangKy extends JFrame {
 		setLocationRelativeTo(null);
 	}// </editor-fold>//GEN-END:initComponents
 
-	private void btnĐangKyActionPerformed(java.awt.event.ActionEvent evt) throws com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException {// GEN-FIRST:event_btnĐangKyActionPerformed
+	private void btnĐangKyActionPerformed(java.awt.event.ActionEvent evt)
+			throws com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException {// GEN-FIRST:event_btnĐangKyActionPerformed
 		String username, password, nhapLai;
 		username = txtUserName.getText();
 		password = String.valueOf(txtPassword.getPassword()).trim();
@@ -218,19 +219,18 @@ public class ViewDangKy extends JFrame {
 			ThongBao("nhập lại mật khẩu không khớp", "Thông báo", 2);
 		} else {
 			if (kt == true) {
-				String query = "insert into users(TenDangNhap, Password,Quyen,ChuThich) values('" + username
-						+ "' , '" + password + "', " + 2 + ", 'người dùng')";
+				String query = "insert into users(TenDangNhap, Password,Quyen,ChuThich) values('" + username + "' , '"
+						+ password + "', " + 2 + ", 'người dùng')";
 				System.out.println(query);
 				Manager.connection.excuteQueryUpdate(query);
 				System.out.println("Đã Thêm Thành Công");
 				ViewDangNhap viewDangNhap = new ViewDangNhap();
-				boolean xac_nhan =new LoginDAO().checkLogin(username, password);
-				if(xac_nhan == true) {
+				boolean xac_nhan = new LoginDAO().checkLogin(username, password);
+				if (xac_nhan == true) {
 					ThongBao("Đăng Ký Thành Công", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
 					viewDangNhap.show();
 					this.dispose();
-				}
-				else {
+				} else {
 					ThongBao("Tài khoản đã tồn tại", "Lỗi Đăng Ký", JOptionPane.ERROR_MESSAGE);
 				}
 			} else {

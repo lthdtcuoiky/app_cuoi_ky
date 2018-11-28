@@ -64,6 +64,7 @@ public class ConnectDB {
 			e.printStackTrace();
 		}
 	}
+
 	public static void main(String[] args) {
 		new ConnectDB();
 	}
