@@ -2,6 +2,7 @@ package view.user;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,10 +12,15 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
 
 public class UserView extends JFrame {
 	private JPanel contentPane;
@@ -24,15 +30,6 @@ public class UserView extends JFrame {
 	private JPanel panel;
 	private JScrollPane scrollPane;
 	private JPanel panel_san_pham;
-	private JButton btnNewButton;
-	private JButton button_1;
-	private JButton button_2;
-	private JButton button_3;
-	private JButton button_4;
-	private JButton button_5;
-	private JButton button_6;
-	private JButton button_7;
-	private JButton button_8;
 
 	/**
 	 * Launch the application.
@@ -58,75 +55,50 @@ public class UserView extends JFrame {
 	 */
 	public UserView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100,50,1166, 668);
+		setBounds(100, 50, 1166, 668);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
 		panel = new JPanel();
+		panel.setBackground(new Color(153, 204, 204));
+		panel.setForeground(new Color(0, 0, 255));
 		contentPane.add(panel, BorderLayout.CENTER);
 
 		tabbedPane = new JTabbedPane(JTabbedPane.LEFT);
 		gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
-				gl_panel.createSequentialGroup().addContainerGap().addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE,
-						774, Short.MAX_VALUE)));
-		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
-				gl_panel.createSequentialGroup().addContainerGap().addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE,
-						551, Short.MAX_VALUE)));
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE)
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addComponent(tabbedPane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+		);
+		gl_panel.setHonorsVisibility(false);
 
 		tabbed_pane_SanPham = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("Sản phẩm", new ImageIcon(
-				"src\\quanlysp\\util\\images\\sanpham.png"),
-				tabbed_pane_SanPham, null);
-		
+		tabbedPane.addTab("Sản phẩm", new ImageIcon("src\\quanlysp\\util\\images\\sanpham.png"), tabbed_pane_SanPham,
+				null);
+
 		scrollPane = new JScrollPane();
 		tabbed_pane_SanPham.addTab("Danh Sách Sản Phẩm", null, scrollPane, null);
-		
+
 		panel_san_pham = new JPanel();
+		panel_san_pham.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel_san_pham.setForeground(new Color(255, 255, 204));
+		panel_san_pham.setBackground(new Color(255, 255, 255));
 		scrollPane.setViewportView(panel_san_pham);
-		panel_san_pham.setLayout(new GridLayout(3, 3, 10, 10));
-		
-		btnNewButton = new JButton("");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		button_3 = new JButton("");
-		panel_san_pham.add(button_3);
-		
-		button_8 = new JButton("");
-		panel_san_pham.add(button_8);
-		
-		button_7 = new JButton("");
-		panel_san_pham.add(button_7);
-		
-		button_6 = new JButton("");
-		panel_san_pham.add(button_6);
-		
-		button_5 = new JButton("");
-		panel_san_pham.add(button_5);
-		
-		button_4 = new JButton("");
-		panel_san_pham.add(button_4);
-		
-		button_2 = new JButton("");
-		panel_san_pham.add(button_2);
-		
-		button_1 = new JButton("");
-		panel_san_pham.add(button_1);
-		panel_san_pham.add(btnNewButton);
+		panel_san_pham.setLayout(new GridLayout(10, 4, 10, 10));
 
 //		JButton btnNewButton = new JButton("");
 //		btnNewButton.setIcon(new ImageIcon("D:\\image\\Webp.net-resizeimage.jpg"));
 //		panel_san_pham.add(btnNewButton);
 
 		JTabbedPane tabbed_pane_tai_khoan = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("Tài Khoản", new ImageIcon(
-				"src\\quanlysp\\util\\images\\thoat.png"),
-				tabbed_pane_tai_khoan, null);
+		tabbedPane.addTab("Tài Khoản", new ImageIcon("src\\quanlysp\\util\\images\\thoat.png"), tabbed_pane_tai_khoan,
+				null);
 
 		JPanel panel_tai_khoan = new JPanel();
 		tabbed_pane_tai_khoan.addTab("Thông tin tài khoản", null, panel_tai_khoan, null);
@@ -140,13 +112,16 @@ public class UserView extends JFrame {
 	}
 
 	public void addButton() {
-		JButton button = null;
-		for (int i = 1; i <= 2; i++) {
-			button = new JButton();
-			String location = "D:\\image\\image"+i+".jpg";
-			button.setIcon(new ImageIcon(location));
-			panel_san_pham.add(button);
-			System.out.println(i);
+		String linkImg = null;
+		String name = null;
+		String price = null;
+		JPanel panel;
+		for (int i = 1; i <= 40; i++) {
+			linkImg = "D:\\image\\image" + i + ".jpg";
+			name = "Pepsi";
+			price = "500.000đ";
+			panel = new Item().getItems(name, price, linkImg);
+			panel_san_pham.add(panel);
 		}
 	}
 }
