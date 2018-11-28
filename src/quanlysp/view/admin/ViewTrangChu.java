@@ -1,6 +1,7 @@
 package view.admin;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -34,7 +35,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -50,9 +50,6 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 import controlller.Manager;
-import sun.nio.cs.ext.MacGreek;
-
-import java.awt.Toolkit;
 
 public class ViewTrangChu extends JFrame {
 	private JButton bntSua_SanPham;
@@ -543,33 +540,28 @@ public class ViewTrangChu extends JFrame {
 			jPanel14Layout.createParallelGroup(Alignment.LEADING)
 				.addGroup(jPanel14Layout.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(jPanel14Layout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(Alignment.LEADING, jPanel14Layout.createSequentialGroup()
+					.addGroup(jPanel14Layout.createParallelGroup(Alignment.LEADING)
+						.addGroup(jPanel14Layout.createSequentialGroup()
 							.addComponent(lblMaHoaDon_HoaDon)
 							.addPreferredGap(ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
 							.addComponent(lblMHan)
 							.addPreferredGap(ComponentPlacement.RELATED))
-						.addGroup(Alignment.LEADING, jPanel14Layout.createSequentialGroup()
-							.addComponent(lblTongTien_HoaDon, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-							.addComponent(lblTngTin)
-							.addPreferredGap(ComponentPlacement.RELATED))
-						.addGroup(Alignment.LEADING, jPanel14Layout.createSequentialGroup()
-							.addComponent(jLabel31, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
-							.addGroup(jPanel14Layout.createParallelGroup(Alignment.LEADING)
-								.addGroup(jPanel14Layout.createSequentialGroup()
-									.addPreferredGap(ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-									.addGroup(jPanel14Layout.createParallelGroup(Alignment.TRAILING)
-										.addComponent(lblNgayLap)
-										.addComponent(lblKhchHng))
-									.addGap(4))
-								.addGroup(jPanel14Layout.createSequentialGroup()
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(lblNhnVin)
-									.addPreferredGap(ComponentPlacement.RELATED))))
 						.addGroup(jPanel14Layout.createSequentialGroup()
-							.addComponent(btnThem_HoaDon, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
-							.addGap(12)))
+							.addComponent(jLabel31, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+							.addGroup(jPanel14Layout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(lblNgayLap)
+								.addComponent(lblKhchHng)
+								.addComponent(lblNhnVin))
+							.addGap(4))
+						.addGroup(Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+							.addGroup(jPanel14Layout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(btnThem_HoaDon, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
+								.addGroup(jPanel14Layout.createSequentialGroup()
+									.addComponent(lblTongTien_HoaDon, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+									.addComponent(lblTngTin)))
+							.addPreferredGap(ComponentPlacement.RELATED)))
 					.addGroup(jPanel14Layout.createParallelGroup(Alignment.LEADING)
 						.addGroup(jPanel14Layout.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
