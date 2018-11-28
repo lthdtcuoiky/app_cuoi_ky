@@ -50,6 +50,8 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 import controlller.Manager;
+import sun.nio.cs.ext.MacGreek;
+
 import java.awt.Toolkit;
 
 public class ViewTrangChu2 extends JFrame {
@@ -103,7 +105,6 @@ public class ViewTrangChu2 extends JFrame {
 	private JLabel jLabel27;
 	private JLabel jLabel28;
 	private JLabel jLabel3;
-	private JLabel jLabel30;
 	private JLabel jLabel31;
 	private JLabel jLabel33;
 	private JLabel jLabel34;
@@ -222,7 +223,6 @@ public class ViewTrangChu2 extends JFrame {
 	private JTextField txtTonKho_SanPham;
 	private JTextField txtTongTienCTPN_PhieuNhap;
 	private JTextField txtTongTien_ChiTietHoaDon;
-	private JTextField txtTongTien_HoaDon;
 	private ButtonGroup buttonGroup2;
 
 	int tam = 0;
@@ -241,11 +241,11 @@ public class ViewTrangChu2 extends JFrame {
 
 	public ViewTrangChu2() {
 		setIconImage(Toolkit.getDefaultToolkit()
-				.getImage("C:\\Users\\duy\\eclipse-workspace\\team.lthdt2018.app.java\\3_kimbap nướng.jpg"));
+				.getImage("src/images/shop.jpg"));
 		initComponents();
 		initComponentsAnhXa();
 
-		icon = new ImageIcon("/com/quanlysp/images/gai.jpg");
+
 
 		labelHinhAnh.setIcon(icon);
 		labelHinhAnh.setSize(50, 50);
@@ -274,8 +274,6 @@ public class ViewTrangChu2 extends JFrame {
 		lblMaHoaDon_HoaDon = new JLabel();
 		lblTongTien_HoaDon = new JLabel();
 		jLabel31 = new JLabel();
-		jLabel30 = new JLabel();
-		txtTongTien_HoaDon = new JTextField();
 		cbbKhachHang_HoaDon = new JComboBox<>();
 		cbbNhanVien_HoaDon = new JComboBox<>();
 		txtMaPhieuMua_HoaDon = new JTextField();
@@ -487,13 +485,6 @@ public class ViewTrangChu2 extends JFrame {
 			tblHoaDon_HoaDon.getColumnModel().getColumn(0).setMaxWidth(30);
 		}
 
-		txtTongTien_HoaDon.setEditable(false);
-		txtTongTien_HoaDon.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				txtTongTien_HoaDonActionPerformed(evt);
-			}
-		});
-
 		cbbKhachHang_HoaDon
 				.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -501,7 +492,7 @@ public class ViewTrangChu2 extends JFrame {
 				.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 		cbbNhanVien_HoaDon.setActionCommand("");
 
-		txtMaPhieuMua_HoaDon.setEditable(false);
+		txtMaPhieuMua_HoaDon.setEditable(true);
 
 		txtGhiChu_HoaDon.setColumns(20);
 		txtGhiChu_HoaDon.setRows(5);
@@ -534,88 +525,115 @@ public class ViewTrangChu2 extends JFrame {
 				btnReset_HoaDonActionPerformed(evt);
 			}
 		});
+		
+		JLabel lblMHan = new JLabel("Mã Hóa Đơn");
+		
+		JLabel lblNhnVin = new JLabel("Nhân Viên");
+		
+		lblKhchHng = new JLabel("Khách Hàng");
+		
+		lblTngTin = new JLabel("Tổng Tiền");
+		
+		txtTongTien_HoaDon = new JTextField();
+		txtTongTien_HoaDon.setColumns(10);
 
 		//
 		GroupLayout jPanel14Layout = new GroupLayout(jPanel14);
-		jPanel14.setLayout(jPanel14Layout);
-		jPanel14Layout.setHorizontalGroup(jPanel14Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel14Layout.createSequentialGroup().addContainerGap().addGroup(jPanel14Layout
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(jLabel31, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblMaHoaDon_HoaDon)
-						.addComponent(lblTongTien_HoaDon, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
-						.addComponent(jLabel30, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnThem_HoaDon, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNgayLap))
-						.addGroup(jPanel14Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+		jPanel14Layout.setHorizontalGroup(
+			jPanel14Layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(jPanel14Layout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(jPanel14Layout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(Alignment.LEADING, jPanel14Layout.createSequentialGroup()
+							.addComponent(lblMaHoaDon_HoaDon)
+							.addPreferredGap(ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+							.addComponent(lblMHan)
+							.addPreferredGap(ComponentPlacement.RELATED))
+						.addGroup(Alignment.LEADING, jPanel14Layout.createSequentialGroup()
+							.addComponent(lblTongTien_HoaDon, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+							.addComponent(lblTngTin)
+							.addPreferredGap(ComponentPlacement.RELATED))
+						.addGroup(Alignment.LEADING, jPanel14Layout.createSequentialGroup()
+							.addComponent(jLabel31, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+							.addGroup(jPanel14Layout.createParallelGroup(Alignment.LEADING)
 								.addGroup(jPanel14Layout.createSequentialGroup()
-										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(jPanel14Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-												.addGroup(jPanel14Layout.createSequentialGroup().addGroup(jPanel14Layout
-														.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-														.addComponent(txtTongTien_HoaDon)
-														.addComponent(cbbKhachHang_HoaDon, 0, 142, Short.MAX_VALUE)
-														.addComponent(txtNgayLapHoaDon_HoaDon)
-														.addComponent(cbbNhanVien_HoaDon, 0, GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE))
-														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-														.addComponent(jScrollPane16, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-														.addGap(0, 0, Short.MAX_VALUE))
-												.addGroup(jPanel14Layout.createSequentialGroup()
-														.addComponent(txtMaPhieuMua_HoaDon, GroupLayout.PREFERRED_SIZE,
-																142, GroupLayout.PREFERRED_SIZE)
-														.addGap(63, 63, 63)
-														.addComponent(jLabel33, GroupLayout.PREFERRED_SIZE, 66,
-																GroupLayout.PREFERRED_SIZE)
-														.addContainerGap(70, Short.MAX_VALUE))))
-								.addGroup(jPanel14Layout.createSequentialGroup().addGap(14, 14, 14)
-										.addComponent(btnXoa_HoaDon, GroupLayout.PREFERRED_SIZE, 90,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(14, 14, 14)
-										.addComponent(btnSua_HoaDon, GroupLayout.PREFERRED_SIZE, 90,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(btnReset_HoaDon, GroupLayout.PREFERRED_SIZE, 91,
-												GroupLayout.PREFERRED_SIZE)))));
-		jPanel14Layout.setVerticalGroup(jPanel14Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel14Layout.createSequentialGroup().addGap(22, 22, 22).addGroup(jPanel14Layout
-						.createParallelGroup(GroupLayout.Alignment.BASELINE)
+									.addPreferredGap(ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+									.addGroup(jPanel14Layout.createParallelGroup(Alignment.TRAILING)
+										.addComponent(lblNgayLap)
+										.addComponent(lblKhchHng))
+									.addGap(4))
+								.addGroup(jPanel14Layout.createSequentialGroup()
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(lblNhnVin)
+									.addPreferredGap(ComponentPlacement.RELATED))))
+						.addGroup(jPanel14Layout.createSequentialGroup()
+							.addComponent(btnThem_HoaDon, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
+							.addGap(12)))
+					.addGroup(jPanel14Layout.createParallelGroup(Alignment.LEADING)
+						.addGroup(jPanel14Layout.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(jPanel14Layout.createParallelGroup(Alignment.LEADING)
+								.addGroup(jPanel14Layout.createSequentialGroup()
+									.addGroup(jPanel14Layout.createParallelGroup(Alignment.LEADING, false)
+										.addComponent(txtTongTien_HoaDon)
+										.addComponent(cbbKhachHang_HoaDon, Alignment.TRAILING, 0, 142, Short.MAX_VALUE)
+										.addComponent(txtNgayLapHoaDon_HoaDon, Alignment.TRAILING)
+										.addComponent(cbbNhanVien_HoaDon, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(jScrollPane16, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addGroup(jPanel14Layout.createSequentialGroup()
+									.addComponent(txtMaPhieuMua_HoaDon, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
+									.addGap(63)
+									.addComponent(jLabel33, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE))))
+						.addGroup(jPanel14Layout.createSequentialGroup()
+							.addGap(14)
+							.addComponent(btnXoa_HoaDon, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+							.addGap(14)
+							.addComponent(btnSua_HoaDon, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(btnReset_HoaDon, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(35, Short.MAX_VALUE))
+		);
+		jPanel14Layout.setVerticalGroup(
+			jPanel14Layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(jPanel14Layout.createSequentialGroup()
+					.addGap(22)
+					.addGroup(jPanel14Layout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblMaHoaDon_HoaDon, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtMaPhieuMua_HoaDon, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addComponent(jLabel33)).addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(jPanel14Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(jScrollPane16, GroupLayout.PREFERRED_SIZE, 113,
-										GroupLayout.PREFERRED_SIZE)
-								.addGroup(jPanel14Layout.createSequentialGroup()
-										.addGroup(jPanel14Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-												.addComponent(jLabel31, GroupLayout.PREFERRED_SIZE, 23,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(cbbNhanVien_HoaDon, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-										.addGroup(jPanel14Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-												.addComponent(jLabel30, GroupLayout.PREFERRED_SIZE, 21,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(cbbKhachHang_HoaDon, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-										.addGap(9, 9, 9)
-										.addGroup(jPanel14Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-												.addComponent(lblNgayLap).addComponent(txtNgayLapHoaDon_HoaDon,
-														GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-														GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-										.addGroup(jPanel14Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-												.addComponent(lblTongTien_HoaDon, GroupLayout.PREFERRED_SIZE, 25,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(txtTongTien_HoaDon, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-										.addGap(18, 18, 18)
-										.addGroup(jPanel14Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-												.addComponent(btnThem_HoaDon).addComponent(btnXoa_HoaDon)
-												.addComponent(btnSua_HoaDon).addComponent(btnReset_HoaDon))))
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+						.addComponent(txtMaPhieuMua_HoaDon, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(jLabel33)
+						.addComponent(lblMHan))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(jPanel14Layout.createParallelGroup(Alignment.LEADING)
+						.addComponent(jScrollPane16, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
+						.addGroup(jPanel14Layout.createSequentialGroup()
+							.addGroup(jPanel14Layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(jLabel31, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+								.addComponent(cbbNhanVien_HoaDon, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNhnVin))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(jPanel14Layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(cbbKhachHang_HoaDon, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblKhchHng, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(jPanel14Layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(txtNgayLapHoaDon_HoaDon, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNgayLap))
+							.addGap(18)
+							.addGroup(jPanel14Layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblTongTien_HoaDon, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblTngTin)
+								.addComponent(txtTongTien_HoaDon, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGap(18)
+							.addGroup(jPanel14Layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(btnXoa_HoaDon)
+								.addComponent(btnSua_HoaDon)
+								.addComponent(btnReset_HoaDon)
+								.addComponent(btnThem_HoaDon))))
+					.addContainerGap(143, Short.MAX_VALUE))
+		);
+		jPanel14.setLayout(jPanel14Layout);
 
 		jLabel35.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 		jLabel35.setForeground(new Color(51, 102, 255));
@@ -641,30 +659,40 @@ public class ViewTrangChu2 extends JFrame {
 
 		//
 		GroupLayout jPanelHoaDonLayout = new GroupLayout(jPanelHoaDon);
-		jPanelHoaDonLayout.setHorizontalGroup(jPanelHoaDonLayout.createParallelGroup(Alignment.LEADING)
+		jPanelHoaDonLayout.setHorizontalGroup(
+			jPanelHoaDonLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(jPanelHoaDonLayout.createSequentialGroup()
-						.addGroup(jPanelHoaDonLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(jPanelHoaDonLayout.createSequentialGroup().addGap(235).addComponent(jLabel35))
-								.addGroup(jPanelHoaDonLayout.createSequentialGroup().addGap(209).addComponent(jLabel34))
-								.addGroup(jPanelHoaDonLayout.createSequentialGroup().addContainerGap()
-										.addComponent(jScrollPane10, GroupLayout.PREFERRED_SIZE, 691,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(9).addComponent(jPanel14, GroupLayout.PREFERRED_SIZE, 446,
-												GroupLayout.PREFERRED_SIZE)))
-						.addContainerGap(20, Short.MAX_VALUE)));
-		jPanelHoaDonLayout.setVerticalGroup(jPanelHoaDonLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(jPanelHoaDonLayout.createSequentialGroup().addContainerGap().addComponent(jLabel35)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(jPanelHoaDonLayout.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(jPanel14, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(jScrollPane10, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 374,
-										Short.MAX_VALUE))
-						.addPreferredGap(ComponentPlacement.RELATED).addComponent(jLabel34).addGap(166)));
+					.addGroup(jPanelHoaDonLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(jPanelHoaDonLayout.createSequentialGroup()
+							.addGap(235)
+							.addComponent(jLabel35))
+						.addGroup(jPanelHoaDonLayout.createSequentialGroup()
+							.addGap(209)
+							.addComponent(jLabel34))
+						.addGroup(jPanelHoaDonLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(jScrollPane10, GroupLayout.PREFERRED_SIZE, 691, GroupLayout.PREFERRED_SIZE)
+							.addGap(9)
+							.addComponent(jPanel14, GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)))
+					.addContainerGap())
+		);
+		jPanelHoaDonLayout.setVerticalGroup(
+			jPanelHoaDonLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(jPanelHoaDonLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(jLabel35)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(jPanelHoaDonLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(jPanel14, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(jScrollPane10, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 374, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(jLabel34)
+					.addGap(166))
+		);
 		jPanelHoaDon.setLayout(jPanelHoaDonLayout);
 		jTabbedPaneHoaDon.addTab("Phiếu Mua Hàng", jPanelHoaDon);
 
-		tbljpanel.addTab("Hóa Dơn", new ImageIcon("src\\quanlysp\\util\\images\\hoadon.png"), jTabbedPaneHoaDon); // NOI18N
+		tbljpanel.addTab("Hóa Dơn", new ImageIcon("src/util/images/hoadon.png"), jTabbedPaneHoaDon); // NOI18N
 
 		//
 		jPanelSanPham.setBackground(new Color(204, 204, 255));
@@ -697,7 +725,7 @@ public class ViewTrangChu2 extends JFrame {
 
 		lblGiaBan.setText("Giá Bán");
 
-		txtMaSanPham_SanPham.setEditable(false);
+		txtMaSanPham_SanPham.setEditable(true);
 
 		GroupLayout jPanel4Layout = new GroupLayout(jPanel4);
 		jPanel4.setLayout(jPanel4Layout);
@@ -1013,7 +1041,7 @@ public class ViewTrangChu2 extends JFrame {
 		jTabbedPaneQuanLySanPham.addTab("Sản Phẩm", jPanelSanPham);
 
 		// ảnh sản phẩm
-		tbljpanel.addTab(" Sản Phẩm", new ImageIcon("src\\quanlysp\\util\\images\\sanpham.png"),
+		tbljpanel.addTab(" Sản Phẩm", new ImageIcon("src/util/images/sanpham.png"),
 				jTabbedPaneQuanLySanPham); // NOI18N
 
 		jPanel_KhachHang.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -1042,7 +1070,7 @@ public class ViewTrangChu2 extends JFrame {
 
 		lblTenKhachHang_KhachHang.setText("Tên KH");
 
-		txtMaKhachHang_KhachHang.setEditable(false);
+		txtMaKhachHang_KhachHang.setEditable(true);
 
 		txtTenKhachHang_KhachHang.addFocusListener(new java.awt.event.FocusAdapter() {
 			public void focusLost(java.awt.event.FocusEvent evt) {
@@ -1095,7 +1123,11 @@ public class ViewTrangChu2 extends JFrame {
 		btnThem_KhachHang.setText("Thêm");
 		btnThem_KhachHang.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				btnThem_KhachHangActionPerformed(evt);
+				try {
+					btnThem_KhachHangActionPerformed(evt);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 
@@ -1266,7 +1298,7 @@ public class ViewTrangChu2 extends JFrame {
 		);
 		jPanel_KhachHang.setLayout(jPanel_KhachHangLayout);
 
-		tbljpanel.addTab("Khách Hàng", new ImageIcon("src\\quanlysp\\util\\images\\khachHang.png"), jPanel_KhachHang); // NOI18N
+		tbljpanel.addTab("Khách Hàng", new ImageIcon("src/util/images/khachHang.png"), jPanel_KhachHang); // NOI18N
 
 		jTabbedPaneNhanVien.addComponentListener(new java.awt.event.ComponentAdapter() {
 			public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -1329,7 +1361,8 @@ public class ViewTrangChu2 extends JFrame {
 
 		jLabel47.setText("Ngày Vào Làm");
 
-		txtMaNhanVien_NhanVien.setEditable(false);
+		//  cho ng dùng sửa mã nv
+		txtMaNhanVien_NhanVien.setEditable(true);
 
 		buttonGroup1.add(rbtnNam_NhanVien);
 		rbtnNam_NhanVien.setText("Nam");
@@ -1764,7 +1797,7 @@ public class ViewTrangChu2 extends JFrame {
 								.addComponent(btnAnDi_ChucVu))
 						.addContainerGap(14, Short.MAX_VALUE)));
 
-		tbljpanel.addTab("Nhân Viên", new ImageIcon("src\\quanlysp\\util\\images\\nhanvien.png"), jTabbedPaneNhanVien); // NOI18N
+		tbljpanel.addTab("Nhân Viên", new ImageIcon("src/util/images/nhanvien.png"), jTabbedPaneNhanVien); // NOI18N
 
 		//
 		jTable1.setModel(
@@ -1792,7 +1825,7 @@ public class ViewTrangChu2 extends JFrame {
 		jPanelDangXuatLayout.setVerticalGroup(jPanelDangXuatLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGap(0, 584, Short.MAX_VALUE));
 
-		tbljpanel.addTab("đăng Xuất", new ImageIcon("src\\quanlysp\\util\\images\\thoat.png"), jPanelDangXuat); // NOI18N
+		tbljpanel.addTab("đăng Xuất", new ImageIcon("src/util/images/thoat.png"), jPanelDangXuat); // NOI18N
 
 		jPanelMe.addComponentListener(new java.awt.event.ComponentAdapter() {
 			public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -1824,7 +1857,7 @@ public class ViewTrangChu2 extends JFrame {
 						.addComponent(lblAbout, GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE).addContainerGap()));
 		jPanelMe.setLayout(jPanelMeLayout);
 
-		tbljpanel.addTab("About Me", new ImageIcon("src\\quanlysp\\util\\images\\me.png"), jPanelMe); // NOI18N
+		tbljpanel.addTab("About Me", new ImageIcon("src/util/images/me.png"), jPanelMe); // NOI18N
 
 		GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
 		jPanel1.setLayout(jPanel1Layout);
@@ -2036,7 +2069,7 @@ public class ViewTrangChu2 extends JFrame {
 
 	private void jPanel_KhachHangComponentShown(java.awt.event.ComponentEvent evt) {// GEN-FIRST:event_jPanel_KhachHangComponentShown
 		rbtnNam_KhachHang.setSelected(true);
-		layDuLieuKhachHang();
+		LayDuLieuKhachHang();
 		for (int i = 1; i < 32; i++) {
 			cbbNgay.addItem(String.valueOf(i));
 		}
@@ -2052,9 +2085,9 @@ public class ViewTrangChu2 extends JFrame {
 		String MaNhanVien, TenNhanVien, NgaySinh, GioiTinh, NgayVaoLam, ChucVu, DiaChi, SoDT, GhiChu;
 		MaNhanVien = txtMaNhanVien_NhanVien.getText();
 		if (rbtnNam_NhanVien.isSelected()) {
-			GioiTinh = "1";
+			GioiTinh = "Nam";
 		} else {
-			GioiTinh = "0";
+			GioiTinh = "Nữ";
 		}
 		ChucVu = GetCbbSelected(cbbChucVu_NhanVien);
 		TenNhanVien = txtTenNhanVien_NhanVien.getText();
@@ -2071,8 +2104,8 @@ public class ViewTrangChu2 extends JFrame {
 		DiaChi = txtDiaChi_NhanVien.getText();
 		SoDT = txtSoDT_NhanVien.getText();
 		GhiChu = txtChuThich_NhanVien.getText();
-		String cautruyvan = "insert into NhanVien values(" + "N'" + TenNhanVien + "','" + NgaySinh + "'," + GioiTinh
-				+ ",'" + NgayVaoLam + "'," + ChucVu + ",N'" + DiaChi + "','" + SoDT + "',N'" + GhiChu + "')";
+		String cautruyvan = "insert into NhanVien values(" + MaNhanVien +",N'" + TenNhanVien + "','" + NgaySinh + "',N'" + GioiTinh
+				+ "','" + NgayVaoLam + "'," + ChucVu + ",N'" + DiaChi + "',N'" + SoDT + "',N'" + GhiChu + "')";
 
 		boolean kiemtra = KiemTraNhapNhanVien(0);
 		if (kiemtra) {
@@ -2165,9 +2198,9 @@ public class ViewTrangChu2 extends JFrame {
 		String MaNhanVien, TenNhanVien, NgaySinh, GioiTinh, NgayVaoLam, ChucVu, DiaChi, SoDT, GhiChu;
 		MaNhanVien = txtMaNhanVien_NhanVien.getText();
 		if (rbtnNam_NhanVien.isSelected()) {
-			GioiTinh = "1";
+			GioiTinh = "Nam";
 		} else {
-			GioiTinh = "0";
+			GioiTinh = "Nữ";
 		}
 		ChucVu = GetCbbSelected(cbbChucVu_NhanVien);
 		TenNhanVien = txtTenNhanVien_NhanVien.getText();
@@ -2184,10 +2217,11 @@ public class ViewTrangChu2 extends JFrame {
 		DiaChi = txtDiaChi_NhanVien.getText();
 		SoDT = txtSoDT_NhanVien.getText();
 		GhiChu = txtChuThich_NhanVien.getText();
-		String cautruyvan = "update NhanVien set TenNhanVien=" + "N'" + TenNhanVien + "',NgaySinh='" + NgaySinh
-				+ "',GioiTinh=" + GioiTinh + ",NgayVaoLam='" + NgayVaoLam + "',ChucVu=" + ChucVu + ",DiaChi=N'" + DiaChi
+		String cautruyvan = "update NhanVien set " + "TenNhanVien= N'" + TenNhanVien + "',NgaySinh='" + NgaySinh
+				+ "',GioiTinh= N'" + GioiTinh + "',NgayVaoLam='" + NgayVaoLam + "',ChucVu=" + ChucVu + ",DiaChi=N'" + DiaChi
 				+ "',SoDT='" + SoDT + "',GhiChu=N'" + GhiChu + "'where MaNhanVien=" + MaNhanVien;
 		boolean kiemtra = KiemTraNhapNhanVien(1);
+		System.out.println(cautruyvan);
 		if (kiemtra) {
 			Manager.connection.excuteQueryUpdate(cautruyvan);
 			System.out.println("Đã sửa Thành Công");
@@ -2265,8 +2299,8 @@ public class ViewTrangChu2 extends JFrame {
 
 	}// GEN-LAST:event_cbbThangActionPerformed
 
-	private void btnThem_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnThem_KhachHangActionPerformed
-		String MaKhachHang, TenKhachHang, NgaySinh, GioiTinh, DiaChi, SDT, LoaiKhachHang, ChuThich;
+	private void btnThem_KhachHangActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {// GEN-FIRST:event_btnThem_KhachHangActionPerformed
+		String MaKhachHang, TenKhachHang, NgaySinh, GioiTinh, DiaChi, SDT,  ChuThich;
 		MaKhachHang = txtMaKhachHang_KhachHang.getText();
 		TenKhachHang = txtTenKhachHang_KhachHang.getText();
 		String ngay, thang, nam;
@@ -2275,25 +2309,34 @@ public class ViewTrangChu2 extends JFrame {
 		nam = cbbNam.getSelectedItem().toString();
 		NgaySinh = nam + "-" + thang + "-" + ngay;
 		if (rbtnNam_KhachHang.isSelected()) {
-			GioiTinh = "1";
+			GioiTinh = "Nam";
 		} else {
-			GioiTinh = "0";
+			GioiTinh = "Nữ";
 		}
 		DiaChi = txtDiaChi_KhachHang.getText();
 		SDT = txtSDT_KhachHang.getText();
 		ChuThich = txtGhiChu_KhachHang.getText();
-		String cautruyvan = "insert into KhachHang values(" + " N'" + TenKhachHang + "' , '" + NgaySinh + "' ,"
-				+ GioiTinh + ",N'" + DiaChi + "','" + SDT + ", N'" + ChuThich + "')";
+
+		String cautruyvan = "insert into KhachHang(MaKhachHang, TenKhachHang, GioiTinh, DiaChi, SDT, ChuThich, NgaySinh) values(" + MaKhachHang + ", N'" + TenKhachHang +
+				"', N'" +  GioiTinh+ "', N'" + DiaChi + "', N'" + SDT + "', N'" + ChuThich + "','" + NgaySinh+ "')";
 		boolean kiemtra = KiemTraNhapKhachHang(0);
 		if (kiemtra) {
+			String sql = "Select * from khachhang where MaKhachHang = '" + MaKhachHang+"'";
+			System.out.println(sql);
+			ResultSet xac_nhan = Manager.connection.excuteQuerySelect(sql);
+			if (xac_nhan.next()) {
+				ThongBao("Mã khách hàng đã tồn tại", "lỗi thêm khách hàng", JOptionPane.ERROR_MESSAGE);
+
+			}
 			Manager.connection.excuteQueryUpdate(cautruyvan);
 			System.out.println("Đã Thêm Thành Công");
 			System.out.println(cautruyvan);
+			// xác nhận bằng null khi xác nhận ko tìm thấy hàng nào, ra bảng trống, ngược lại ví dụ tìm thấy hàng nào đó thì nó k phải null vì nó đang select  và tìm thấy cái gì đấy trong bảng, ok
 
 		} else {
 			System.out.println("Thêm Thất Bại");
 		}
-		layDuLieuKhachHang();
+		LayDuLieuKhachHang();
 
 	}// GEN-LAST:event_btnThem_KhachHangActionPerformed
 
@@ -2334,7 +2377,7 @@ public class ViewTrangChu2 extends JFrame {
 	}// GEN-LAST:event_tblKhachHang_KhachHangMouseClicked
 
 	private void btnSua_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSua_KhachHangActionPerformed
-		String MaKhachHang, TenKhachHang, NgaySinh, GioiTinh, DiaChi, SDT, LoaiKhachHang, ChuThich;
+		String MaKhachHang, TenKhachHang, NgaySinh, GioiTinh, DiaChi, SDT,  ChuThich;
 		MaKhachHang = txtMaKhachHang_KhachHang.getText();
 		TenKhachHang = txtTenKhachHang_KhachHang.getText();
 		String ngay, thang, nam;
@@ -2343,15 +2386,15 @@ public class ViewTrangChu2 extends JFrame {
 		nam = cbbNam.getSelectedItem().toString();
 		NgaySinh = nam + "-" + thang + "-" + ngay;
 		if (rbtnNam_KhachHang.isSelected()) {
-			GioiTinh = "1";
+			GioiTinh = "Nam";
 		} else {
-			GioiTinh = "0";
+			GioiTinh = "Nữ";
 		}
 		DiaChi = txtDiaChi_KhachHang.getText();
 		SDT = txtSDT_KhachHang.getText();
 		ChuThich = txtGhiChu_KhachHang.getText();
 		String cautruyvan = "update  KhachHang set " + "TenKhachHang= N'" + TenKhachHang + "' , NgaySinh='" + NgaySinh
-				+ "' ,GioiTinh=" + GioiTinh + ",DiaChi=N'" + DiaChi + "',SDT='" + SDT + ",GhiChu= N'" + ChuThich
+				+ "' ,GioiTinh=N'" + GioiTinh + "',DiaChi=N'" + DiaChi + "',SDT=N'" + SDT + "',ChuThich= N'" + ChuThich
 				+ "'where MaKhachHang=" + MaKhachHang;
 		System.out.println(cautruyvan);
 		boolean kiemtra = KiemTraNhapKhachHang(1);
@@ -2361,7 +2404,7 @@ public class ViewTrangChu2 extends JFrame {
 		} else {
 			System.out.println("Sửa thất bại");
 		}
-		layDuLieuKhachHang();
+		LayDuLieuKhachHang();
 	}// GEN-LAST:event_btnSua_KhachHangActionPerformed
 
 	private void btnReset_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnReset_KhachHangActionPerformed
@@ -2553,116 +2596,32 @@ public class ViewTrangChu2 extends JFrame {
 		String sql = "delete FROM sanpham where MaSanPham=" + MaSanPham;
 
 		Manager.connection.excuteQueryUpdate(sql);
-//		String ctvKiemThu = "select * from SanPham  where   SanPham.MaSanPham=" + MaSanPham;
-//		String ctvKiemThu2 = "select count(MaCTPN) as SoChiTietPhieuNhap"
-//				+ " from SanPham,ChiTietPhieuNhap where SanPham.MaSanPham=ChiTietPhieuNhap.MaSanPham and SanPham.MaSanPham="
-//				+ MaSanPham;
-//		ResultSet rs2 = Manager.connection.excuteQuerySelect(ctvKiemThu2);
-//		int so1 = 0, so2 = 0;
-//
-//		try {
-//			if (rs1.next()) {
-//				so1 = rs1.getInt("SoChiTietHoaDon");
-//			}
-//		} catch (SQLException ex) {
-//			System.out.println(ex.toString());
-//		}
-//		try {
-//
-//			if (rs2.next()) {
-//				so2 = rs2.getInt("SoChiTietPhieuNhap");
-//				if (rs2.getInt("SoChiTietPhieuNhap") == 0 && so1 == 0) {
-//					Manager.connection.excuteQueryUpdate(cautruyvan);
-//					System.out.println("đã xóa");
-//					LayDuLieuSanPham();
-//					return true;
-//				} else {
-//					ThongBao("không thể xóa bởi có trong " + so1 + "  Chi tiết hóa đơn hóa đơn \n và có trong " + so2
-//							+ "  chi tiết phiếu Nhập", "báo lỗi", 2);
-//				}
-//			}
-//
-//		} catch (SQLException ex) {
-//			System.out.println(ex.toString());
-//		}
-//		return false;
+
 	}
 
 	private void btnXoa_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnXoa_KhachHangActionPerformed
 
 		String MaKhachHang = txtMaKhachHang_KhachHang.getText();
-		if (!MaKhachHang.equals("")) {
-			String cautruyvan = "delete KhachHang where MaKhachHang=" + MaKhachHang;
-			String ctvKiemThu = "select count(MaHoaDon) as SoPhieuMua"
-					+ " from KhachHang,HoaDon where KhachHang.MaKhachHang=HoaDon.MaKhachHang"
-					+ " and  KhachHang.MaKhachHang=" + MaKhachHang;
-			ResultSet rs1 = Manager.connection.excuteQuerySelect(ctvKiemThu);
-			System.out.println(ctvKiemThu);
-			int so1 = 0;
-			try {
-				if (rs1.next()) {
-					so1 = rs1.getInt("SoPhieuMua");
-					if (rs1.getInt("SoPhieuMua") == 0) {
-						Manager.connection.excuteQueryUpdate(cautruyvan);
-						System.out.println("đã xóa");
-						layDuLieuKhachHang();
-						ResKhachHang();
-					} else {
-						ThongBao("không thể xóa bởi Khách Hàng đã có " + so1 + " hóa đơn!", "báo lỗi", 2);
-					}
-				}
-			} catch (SQLException ex) {
-				Logger.getLogger(ViewTrangChu2.class.getName()).log(Level.SEVERE, null, ex);
-			}
+		String sql = "delete FROM KhachHang where MaKhachHang=" + MaKhachHang;
 
-		} else {
-			ThongBao("bạn chưa nhập Mã khách hàng", "lỗi khi cố muốn xóa mà không thèm nhập mã", 2);
-		}
+		Manager.connection.excuteQueryUpdate(sql);
+		ThongBao("Đã xóa thành công", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+		LayDuLieuKhachHang();
+
+
 	}// GEN-LAST:event_btnXoa_KhachHangActionPerformed
 
 	private void btnXoa_NhanVienActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnXoa_NhanVienActionPerformed
 
 		String MaNhanVien = txtMaNhanVien_NhanVien.getText();
-		if (!MaNhanVien.equals("")) {
-			String cautruyvan = "delete NhanVien where MaNhanVien=" + MaNhanVien;
-			String ctvKiemThu = "select count(MaHoaDon) as SoHoaDon"
-					+ " from NhanVien,HoaDon where NhanVien.MaNhanVien=HoaDon.MaNhanVien and NhanVien.MaNhanVien="
-					+ MaNhanVien;
-			ResultSet rs1 = Manager.connection.excuteQuerySelect(ctvKiemThu);
-			String ctvKiemThu2 = "select count(MaPhieuNhap) as SoPhieuNhap"
-					+ " from NhanVien,PhieuNhap where NhanVien.MaNhanVien=PhieuNhap.MaNhanVien and NhanVien.MaNhanVien="
-					+ MaNhanVien;
-			ResultSet rs2 = Manager.connection.excuteQuerySelect(ctvKiemThu2);
-			int so1 = 0, so2 = 0;
 
-			try {
-				if (rs1.next()) {
-					so1 = rs1.getInt("SoHoaDon");
-				}
-			} catch (SQLException ex) {
-				System.out.println(ex.toString());
-			}
-			try {
+		String sql = "delete FROM nhanvien where MaNhanVien=" + MaNhanVien;
 
-				if (rs2.next()) {
-					so2 = rs2.getInt("SoPhieuNhap");
-					if (rs2.getInt("SoPhieuNhap") == 0 && so1 == 0) {
-						Manager.connection.excuteQueryUpdate(cautruyvan);
-						System.out.println("đã xóa");
-						layDuLieuNhanVien();
-						ResNhanVien();
-					} else {
-						ThongBao("không thể xóa bởi có trong " + so1 + " hóa đơn \n và có trong " + so2
-								+ "   phiếu Nhập", "báo lỗi", 2);
-					}
-				}
+		Manager.connection.excuteQueryUpdate(sql);
+		ThongBao("Đã xóa thành công", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+		layDuLieuNhanVien();
 
-			} catch (SQLException ex) {
-				System.out.println(ex.toString());
-			}
-		} else {
-			ThongBao("bạn chưa nhập mã nhân viên", "lỗi khi cố xóa nhân viên mà chưa click chuột vô anh ấy", 2);
-		}
+
 	}// GEN-LAST:event_btnXoa_NhanVienActionPerformed
 
 	private void txtTenKhachHang_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtTenKhachHang_KhachHangActionPerformed
@@ -2768,10 +2727,6 @@ public class ViewTrangChu2 extends JFrame {
 		}
 		LayDuLieuHoaDon();
 	}// GEN-LAST:event_btnThem_HoaDonActionPerformed
-
-	private void txtTongTien_HoaDonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtTongTien_HoaDonActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_txtTongTien_HoaDonActionPerformed
 
 	private void tblHoaDon_HoaDonMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tblHoaDon_HoaDonMouseClicked
 		int viTriDongVuaBam = tblHoaDon_HoaDon.getSelectedRow();
@@ -3125,7 +3080,7 @@ public class ViewTrangChu2 extends JFrame {
 		}
 	}
 
-	public void layDuLieuKhachHang() {
+	public void LayDuLieuKhachHang() {
 		String cautruyvan = "";
 		cautruyvan = "select * from khachhang";
 		ResultSet rs = Manager.connection.excuteQuerySelect(cautruyvan);
@@ -3142,10 +3097,10 @@ public class ViewTrangChu2 extends JFrame {
 				item[1] = rs.getInt("MaKhachHang");
 				item[2] = rs.getString("TenKhachHang");
 				item[3] = rs.getString("GioiTinh");
-				item[4] = rs.getString("NgaySinh");
-				item[5] = rs.getString("DiaChi");
-				item[6] = rs.getString("SDT");
-				item[7] = rs.getString("ChuThich");
+				item[4] = rs.getString("DiaChi");
+				item[5] = rs.getString("SDT");
+				item[6] = rs.getString("ChuThich");
+				item[7] = rs.getString("NgaySinh");
 				tableModel.addRow(item);
 			}
 		} catch (SQLException ex) {
@@ -3170,11 +3125,7 @@ public class ViewTrangChu2 extends JFrame {
 				item[1] = rs.getInt("MaNhanVien");
 				item[2] = rs.getString("TenNhanVien");
 				item[3] = rs.getString("NgaySinh");
-				if (rs.getInt("GioiTinh") == 1) {
-					item[4] = "Nam";
-				} else {
-					item[4] = "Nữ";
-				}
+				item[4] = rs.getString("GioiTinh");
 				item[5] = rs.getString("NgayVaoLam");
 				item[6] = rs.getString("TenChucVu");
 				item[7] = rs.getString("DiaChi");
@@ -3328,6 +3279,9 @@ public class ViewTrangChu2 extends JFrame {
 	public static Reader r;
 	private JButton btnTimKiemSP;
 	private JTextField textField_tim_kiem_sp;
+	private JLabel lblKhchHng;
+	private JLabel lblTngTin;
+	private JTextField txtTongTien_HoaDon;
 
 	public void ve() {
 		for (long h = 524994606l; h > 0; h >>= 5) {
