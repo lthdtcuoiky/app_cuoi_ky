@@ -237,7 +237,7 @@ public class ViewTrangChu extends JFrame {
 	SimpleDateFormat fm = new SimpleDateFormat("dd-MM-yyyy");
 
 	public ViewTrangChu() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("src/quanlysp/images/shop.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src/quanlysp/util/images/shop.jpg"));
 		initComponents();
 		initComponentsAnhXa();
 
@@ -1826,11 +1826,6 @@ public class ViewTrangChu extends JFrame {
 
 		tbljpanel.addTab("đăng Xuất", new ImageIcon("src/quanlysp/util/images/thoat.png"), jPanelDangXuat); // NOI18N
 
-		jPanelMe.addComponentListener(new java.awt.event.ComponentAdapter() {
-			public void componentShown(java.awt.event.ComponentEvent evt) {
-				jPanelMeComponentShown(evt);
-			}
-		});
 
 		jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 		jLabel15.setForeground(new Color(0, 0, 0));
@@ -2163,36 +2158,7 @@ public class ViewTrangChu extends JFrame {
 
 	}// GEN-LAST:event_tblNhanVien_NhanVienMouseClicked
 
-	private void jPanelMeComponentShown(java.awt.event.ComponentEvent evt) {// GEN-FIRST:event_jPanelMeComponentShown
-		BufferedImage img = null;
-		try {
-			img = ImageIO.read(new File("com/quanlysp/images/gai.jpg"));
-			icon = new ImageIcon(img);
 
-			lblAbout.setIcon(icon);
-		} catch (IOException e) {
-
-		}
-		try {
-			playSound("mussic/mussic.wav");
-		} catch (Exception e) {
-			System.out.println("Lỗi ko file nhac" + e.getMessage());
-		}
-
-		ve();
-	}// GEN-LAST:event_jPanelMeComponentShown
-
-	public void playSound(String soundName) {
-		try {
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
-			Clip clip = AudioSystem.getClip();
-			clip.open(audioInputStream);
-			clip.start();
-		} catch (Exception ex) {
-			System.out.println("Error with playing sound.");
-			ex.printStackTrace();
-		}
-	}
 
 	private void btnSua_NhanVienActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSua_NhanVienActionPerformed
 		String MaNhanVien, TenNhanVien, NgaySinh, GioiTinh, NgayVaoLam, ChucVu, DiaChi, SoDT, GhiChu;
