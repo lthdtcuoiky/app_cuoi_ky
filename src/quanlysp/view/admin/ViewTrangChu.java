@@ -237,7 +237,7 @@ public class ViewTrangChu extends JFrame {
 	SimpleDateFormat fm = new SimpleDateFormat("dd-MM-yyyy");
 
 	public ViewTrangChu() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("src/images/shop.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src/quanlysp/images/shop.jpg"));
 		initComponents();
 		initComponentsAnhXa();
 
@@ -666,7 +666,7 @@ public class ViewTrangChu extends JFrame {
 		jPanelHoaDon.setLayout(jPanelHoaDonLayout);
 		jTabbedPaneHoaDon.addTab("Phiếu Mua Hàng", jPanelHoaDon);
 
-		tbljpanel.addTab("Hóa Dơn", new ImageIcon("src/util/images/hoadon.png"), jTabbedPaneHoaDon); // NOI18N
+		tbljpanel.addTab("Hóa Dơn", new ImageIcon("src/quanlysp/util/images/hoadon.png"), jTabbedPaneHoaDon); // NOI18N
 
 		//
 		jPanelSanPham.setBackground(new Color(204, 204, 255));
@@ -1009,7 +1009,7 @@ public class ViewTrangChu extends JFrame {
 		jTabbedPaneQuanLySanPham.addTab("Sản Phẩm", jPanelSanPham);
 
 		// ảnh sản phẩm
-		tbljpanel.addTab(" Sản Phẩm", new ImageIcon("src/util/images/sanpham.png"), jTabbedPaneQuanLySanPham); // NOI18N
+		tbljpanel.addTab(" Sản Phẩm", new ImageIcon("src/quanlysp/util/images/sanpham.png"), jTabbedPaneQuanLySanPham); // NOI18N
 
 		jPanel_KhachHang.addComponentListener(new java.awt.event.ComponentAdapter() {
 			public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -1295,7 +1295,7 @@ public class ViewTrangChu extends JFrame {
 										.addGap(22)))));
 		jPanel_KhachHang.setLayout(jPanel_KhachHangLayout);
 
-		tbljpanel.addTab("Khách Hàng", new ImageIcon("src/util/images/khachHang.png"), jPanel_KhachHang); // NOI18N
+		tbljpanel.addTab("Khách Hàng", new ImageIcon("src/quanlysp/util/images/khachHang.png"), jPanel_KhachHang); // NOI18N
 
 		jTabbedPaneNhanVien.addComponentListener(new java.awt.event.ComponentAdapter() {
 			public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -1796,7 +1796,7 @@ public class ViewTrangChu extends JFrame {
 								.addComponent(btnAnDi_ChucVu))
 						.addContainerGap(14, Short.MAX_VALUE)));
 
-		tbljpanel.addTab("Nhân Viên", new ImageIcon("src/util/images/nhanvien.png"), jTabbedPaneNhanVien); // NOI18N
+		tbljpanel.addTab("Nhân Viên", new ImageIcon("src/quanlysp/util/images/nhanvien.png"), jTabbedPaneNhanVien); // NOI18N
 
 		//
 		jTable1.setModel(
@@ -1824,7 +1824,7 @@ public class ViewTrangChu extends JFrame {
 		jPanelDangXuatLayout.setVerticalGroup(jPanelDangXuatLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGap(0, 584, Short.MAX_VALUE));
 
-		tbljpanel.addTab("đăng Xuất", new ImageIcon("src/util/images/thoat.png"), jPanelDangXuat); // NOI18N
+		tbljpanel.addTab("đăng Xuất", new ImageIcon("src/quanlysp/util/images/thoat.png"), jPanelDangXuat); // NOI18N
 
 		jPanelMe.addComponentListener(new java.awt.event.ComponentAdapter() {
 			public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -1856,7 +1856,7 @@ public class ViewTrangChu extends JFrame {
 						.addComponent(lblAbout, GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE).addContainerGap()));
 		jPanelMe.setLayout(jPanelMeLayout);
 
-		tbljpanel.addTab("About Me", new ImageIcon("src/util/images/me.png"), jPanelMe); // NOI18N
+		tbljpanel.addTab("About Me", new ImageIcon("src/quanlysp/util/images/me.png"), jPanelMe); // NOI18N
 
 		GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
 		jPanel1.setLayout(jPanel1Layout);

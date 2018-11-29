@@ -204,7 +204,23 @@ public class UserView extends JFrame {
 		String soLuong = null;
 		String tonKho = null;
 		JPanel panel;
-		for (int i = 1; i <= 40; i++) {
+		String sql1 = "SELECT count(MaSanPham) as sl FROM sanpham";
+		ResultSet rs1 = Manager.connection.excuteQuerySelect(sql1);
+		int x = 0;
+			try {
+				while (rs1.next()) {
+					try {
+						x = rs1.getInt("sl");
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		for (int i = 1; i <= x; i++) {
 			linkImg = "D:\\image\\image" + i + ".jpg";
 			String sql = "SELECT * FROM sanpham where sanpham.MaSanPham = " + i;
 			ResultSet rs = Manager.connection.excuteQuerySelect(sql);
